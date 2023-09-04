@@ -11,8 +11,19 @@
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">{{moive?.getTitle()}}</h5>
-              <p class="card-text">{{moive?.getOverview()}}</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><strong>overview: </strong> {{moive?.getOverview()}}</p>
+              <hr>
+              <p class="card-text">  <strong>Release Date:</strong> {{moive?.getDate()}}</p>
+              <hr>
+
+              <p class="card-text"><strong>Language: </strong>{{moive?.getLanguage() |uppercase}}</p>
+              <hr>
+
+              <p class="card-text"><strong>Vote Avergare:</strong> {{moive?.getVoteAvergare()}}</p>
+              <hr>
+
+              <p class="card-text"><strong>Vote Count:</strong> {{moive?.getVoteCount()}}</p>
+
             </div>
           </div>
         </div>

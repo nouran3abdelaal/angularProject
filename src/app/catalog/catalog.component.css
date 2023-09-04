@@ -4,15 +4,16 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-
+    margin-top: 20px;
 
 }
-.myNavy{
+/* .myNavy{
     padding: auto;
     height: 100%;
     position: relative;
     top: 20;
-}
+} */
+
 .card-title {
     /* height: max-content; */
     min-height: 48px;

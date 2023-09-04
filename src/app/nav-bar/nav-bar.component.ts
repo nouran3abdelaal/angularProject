@@ -1,3 +1,4 @@
+import { CatalogDetailsService } from './../shared/catalogdetails/catalog-details.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -13,9 +14,11 @@ export class NavBarComponent implements OnInit{
     password: ' ',
     name: ''
   };
-constructor(private router: Router) {}
+  moive =null
+constructor(private router: Router, private CatalogDetailsService: CatalogDetailsService) {}
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem("userData"));
+    this.moive = this.CatalogDetailsService.moive;
   }
   logout(){
     localStorage.removeItem("userData");

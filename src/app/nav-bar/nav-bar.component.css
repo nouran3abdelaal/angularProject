@@ -7,4 +7,17 @@
    /* height: 50%vh;
    width: 100%vw; */
    margin-bottom: 5%;
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: top 0.3s ease;
+  z-index: 50;
+  margin-bottom: 2px;
+}
+.nav-item{
+    position: absolute;
+    left: 50vw;
+    color: rgb(2, 77, 77);
+    font-weight: bold;
 }
