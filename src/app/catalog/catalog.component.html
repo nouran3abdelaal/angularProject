@@ -1,0 +1,19 @@
+<!-- <p>catalog works!</p> -->
+<app-nav-bar class="myNavy"></app-nav-bar>
+<!-- <button class="btn btn-outline-success me-2 " (click)="fetchPosts()"> fetch data</button> -->
+<br>
+<app-loading-spinner *ngIf="fetching" >Loading...</app-loading-spinner>
+
+<div class="card-desk container">
+<div  *ngFor="let nouran of nouran?.results">
+    <!-- "https://image.tmdb.org/t/p/original{{nouran?.poster_path}}" -->
+    <div class="card  " style="width: 18rem;"   >
+        <img class="card-img-top" src=  "https://image.tmdb.org/t/p/original{{nouran?.poster_path}}" alt="Card image cap">
+        <div class="card-body" >
+          <h5 class="card-title"> {{nouran?.title}}</h5>
+          <p class="card-text">{{nouran?.overview |shortenText}}</p>
+          <a  class="btn btn-primary" (click)="seeMoreMethod(nouran)">More Details</a>
+        </div>
+      </div>
+    </div>
+</div>

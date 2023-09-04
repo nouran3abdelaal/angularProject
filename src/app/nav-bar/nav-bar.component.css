@@ -1,0 +1,10 @@
+.logoutButon{
+    position: absolute;
+    right: 0;
+}
+.navbar{
+    background-color: aqua;
+   /* height: 50%vh;
+   width: 100%vw; */
+   margin-bottom: 5%;
+}

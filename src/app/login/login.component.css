@@ -1,0 +1,27 @@
+.btn-warning{
+    color: rebeccapurple;
+    background-color: aqua;
+}
+.container{
+    display: inherit;
+     /* justify-content: center;
+    align-items: center;
+    display: contents; */
+    height: 100vh; /* Full viewport height */
+    width: 100lvw;
+
+}
+.styled-label{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-weight: bold;
+}
+.form-inline{
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); 
+    padding: inherit;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}

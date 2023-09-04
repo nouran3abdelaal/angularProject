@@ -1,0 +1,19 @@
+<!-- <p>catalog-details works!</p>
+<p>{{moive?.getTitle()}}</p> -->
+<app-nav-bar></app-nav-bar>
+<div class="container">
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src=  "https://image.tmdb.org/t/p/original{{moive?.getImageURL()}}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{moive?.getTitle()}}</h5>
+              <p class="card-text">{{moive?.getOverview()}}</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>

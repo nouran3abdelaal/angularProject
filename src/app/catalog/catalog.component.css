@@ -1,0 +1,24 @@
+.container{
+    /* display: table-row-group; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+
+}
+.myNavy{
+    padding: auto;
+    height: 100%;
+    position: relative;
+    top: 20;
+}
+.card-title {
+    /* height: max-content; */
+    min-height: 48px;
+    /* margin-bottom: var(--bs-card-title-spacer-y);
+    color: var(--bs-card-title-color); */
+}
+img.card-img-top {
+    min-height: 426px;
+}
