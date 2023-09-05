@@ -8,11 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  constructor(private LogingService: LogingService,private router: Router){}
+  constructor(private LogingService: LogingService){}
 
   ngOnInit(): void {
    this.LogingService.autoLoading();
-   this.router.navigate(['/Catalog']);
   }
 
  

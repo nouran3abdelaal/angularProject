@@ -47,7 +47,9 @@ export class CatalogComponent implements OnInit {
 seeMoreMethod(nouran2:any){
    const  details  = new catalogDetails(nouran2.original_language,nouran2.original_title,nouran2.vote_average,
     nouran2.vote_count,nouran2.overview,nouran2.poster_path,nouran2.release_date);
-    this.CatalogDetailsService.moive = details;
+    // this.CatalogDetailsService.moive = details;
+    localStorage.setItem("moiveDetails",JSON.stringify(details));
+
   console.log(details);
   this.router.navigate(['/CatalogDetails']);
 }

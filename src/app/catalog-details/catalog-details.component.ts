@@ -15,8 +15,10 @@ export class CatalogDetailsComponent implements OnInit {
 
   }
   ngOnInit(): void {
-console.log(this.CatalogDetailsService.moive
-  );
-  this.moive = this.CatalogDetailsService.moive
+   const temp =  JSON.parse(localStorage.getItem("moiveDetails"));
+   this.moive = new catalogDetails(temp.language,temp.title,temp.vote_average,temp.vote_count,temp.overview,temp.imageUrl,temp.release_date)
+console.log("line18",typeof(this.moive));
+  // this.moive = this.CatalogDetailsService.moive
+
   }
 }

@@ -2,7 +2,7 @@
     <!-- <div class=" justify-content-start"> -->
       <span><strong>Welcome {{userData.name}}</strong></span>
       <div class="nav-item" *ngIf="moive">
-        <a class="nav-link" href="/catalog">All Moives</a>
+        <a class="nav-link" routerLink="/Catalog">All Moives</a>
       </div>
       <button class="btn btn-outline-success me-2 logoutButon" type="button" (click)="logout()">LogOut</button>
       <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->

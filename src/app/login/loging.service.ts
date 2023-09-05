@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as usersArray from '../Users.json';
+import { Router } from '@angular/router';
 // import { log } from 'console';
 
 @Injectable({
@@ -8,7 +9,7 @@ import * as usersArray from '../Users.json';
 export class LogingService {
   users :{ email: string, password: string,name:string }[] = JSON.parse(JSON.stringify(usersArray)); //JSON.parse(JSON.stringify(usersArray))
 
-  constructor() { }
+  constructor(private router: Router) { }
 
 login(userToSearch: { email: string, password: string ,name:string}) {
   // console.log(this.users[0]);
@@ -40,6 +41,8 @@ autoLoading(){
   if(!userData){
     return;
   }
+      // this.router.navigate(['/Catalog']);
+
 }
 }
 

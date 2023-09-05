@@ -5,7 +5,7 @@ import {catalogDetails} from ".//catalogDetails.model"
   providedIn: 'root'
 })
 export class CatalogDetailsService {
-  moive : catalogDetails = null;
+  moive : catalogDetails ;
 
 
   constructor() { }
