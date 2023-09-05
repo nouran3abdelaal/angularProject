@@ -15,11 +15,12 @@ import { ShortenTextPipe } from './pipes/shorten-text.pipe';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { CatalogDetailsComponent } from './catalog-details/catalog-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuardService } from './auth.guard.service';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
-  { path: "Catalog", component: CatalogComponent },
-  { path: "CatalogDetails", component: CatalogDetailsComponent },
+  { path: "Catalog", canActivate:[AuthGuardService],component: CatalogComponent },
+  { path: "CatalogDetails",canActivate:[AuthGuardService], component: CatalogDetailsComponent },
   { path: "notFound", component: PageNotFoundComponent },
   { path: "**", redirectTo: "/notFound" }
 ];

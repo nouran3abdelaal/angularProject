@@ -1,23 +1,59 @@
 .logoutButon{
-    position: absolute;
-    right: 0;
+    /* position: absolute;
+    right: 0; */
+    font-weight: bold;
+    font-size: large;
+    color:#F9F7F7;
+    border :none ;
+
+    /* 112D4E */
 }
 .navbar{
-    background-color: aqua;
+    background-color:#3F72AF;
    /* height: 50%vh;
    width: 100%vw; */
-   margin-bottom: 5%;
+   /* margin-bottom: 5%; */
    position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  transition: top 0.3s ease;
+  /* transition: top 0.3s ease; */
   z-index: 50;
-  margin-bottom: 2px;
+  /* margin-bottom: 10px; */
+  display: flex;
+justify-content: space-between;
+  /* padding: 1%; */
+  /* flex-wrap: wrap; */
+
 }
 .nav-item{
-    position: absolute;
-    left: 50vw;
-    color: rgb(2, 77, 77);
+    /* position: absolute;
+    left: 50vw; */
+    color: #F9F7F7;
     font-weight: bold;
+    font-size: large;
+    padding-right:  1%;
+    padding-left:  1%;
+
 }
+
+@media (max-width: 768px) {
+    .navbar{
+        /* margin-bottom: 1px; */
+        display: contents;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .nav-item{
+        font-size: small;
+    }
+    .logoutButon{
+        font-size: small;
+    }
+    
+  }
+  

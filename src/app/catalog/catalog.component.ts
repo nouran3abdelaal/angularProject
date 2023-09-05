@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FetchMoivesService } from './fetch-moives.service';
 import {catalogDetails} from "../shared/catalogdetails/catalogDetails.model"
-import {CatalogDetailsService} from "../shared/catalogdetails/catalog-details.service"
+// import {CatalogDetailsService} from "../shared/catalogdetails/catalog-details.service"
 import { Router } from '@angular/router';
 
 
@@ -22,9 +22,9 @@ export class CatalogComponent implements OnInit {
   moives : catalogDetails[] =[]
 
   nouran:any;
-
+//  private CatalogDetailsService : CatalogDetailsService,
   constructor(private http:HttpClient, private fetchMoives: FetchMoivesService,
-     private CatalogDetailsService : CatalogDetailsService,private router: Router){
+    private router: Router){
 
   }
 

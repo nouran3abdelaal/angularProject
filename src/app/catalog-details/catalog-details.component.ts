@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CatalogDetailsService } from "../shared/catalogdetails/catalog-details.service"
+// import { CatalogDetailsService } from "../shared/catalogdetails/catalog-details.service"
 import { catalogDetails } from '../shared/catalogdetails/catalogDetails.model';
 
 
@@ -11,7 +11,7 @@ import { catalogDetails } from '../shared/catalogdetails/catalogDetails.model';
 export class CatalogDetailsComponent implements OnInit {
   moive : catalogDetails = null;
 
-  constructor(private CatalogDetailsService: CatalogDetailsService) {
+  constructor() {
 
   }
   ngOnInit(): void {

@@ -4,8 +4,12 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 5%;
 
+}
+.card{
+    background-color: #F9F7F7;
+    margin-bottom: 3%;
 }
 /* .myNavy{
     padding: auto;
