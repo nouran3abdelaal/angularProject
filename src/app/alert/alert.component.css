@@ -6,21 +6,25 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 50;
+    /* display: flex;
+    align-items: center; */
 
 }
 .alert-box{
     position: fixed;
-    top: 30vh;
-    width: 40vw;
-    left: 20vw;
-    background-color: aliceblue;
+    top: 40vh;
+    width: 50vw;
+    height: 20vh;
+    left: 25vw;
+    background-color: #DBE2EF;
     z-index: 100;
     padding: 1%;
 
 }
 .alert-box p{
     font-weight: bold;
-    color: red;
+    color: #112D4E;
+   
 
 }
 .actions{

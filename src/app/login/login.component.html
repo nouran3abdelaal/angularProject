@@ -45,6 +45,8 @@
 
         <input class="form-control form-control-lg " type="password" id="password" placeholder="Password"
          name="password" ngModel  required   #pass="ngModel">
+         <!-- <i class="far fa-eye" id="password" style="margin-left: -30px; cursor: pointer;"></i> -->
+
   
     </div>
     <small style="color: red;"  *ngIf="!pass.valid&&pass.touched">Password is required. Please Enter it!</small>
