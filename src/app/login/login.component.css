@@ -1,27 +1,79 @@
-.btn-warning{
-    color: rebeccapurple;
-    background-color: aqua;
+.form-group{
+    /* color: rebeccapurple;
+    background-color: aqua; */
+    display: flex;
+
+}
+.card{
+    /* padding: 20px;
+            border-radius: 8px; */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 50vw;
 }
 .container{
-    display: flex;
-     justify-content: center;
-    align-items: center;
-    /* display: contents; */ 
-    height: 100vh; /* Full viewport height */
-    width: 100lvw;
+   
+    /* margin: 0;
+            padding: 0; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+
+}
+.btn{
+    width: fit-content;
+    font-weight: bold;
 
 }
 .styled-label{
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5%;
+    min-width: 60px;
 }
 .form-inline{
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px; 
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); 
     padding: inherit;
 }
 input.ng-invalid.ng-touched{
-    border: 1px solid red;
+    border: 1px solid rgb(7, 105, 218);
+}
+.form-control{
+    display: flex;
+    align-items: center;
+    padding-top: 1%;
+    
+}
+.form-control:placeholder-shown{
+    display: flex;
+    align-items: center;
+    
+}
+.signUpLink{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+@media (max-width: 768px) {
+    .form-group{
+        display: flex;
+       flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: max-content;
+    }
+    .signUpLink{
+        position: initial;
+        margin-top: 8px;
+    }
+
 }

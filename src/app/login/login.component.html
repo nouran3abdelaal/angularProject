@@ -1,11 +1,31 @@
 <!-- login.component.html -->
-<app-alert [message]="'Email or Password is wrong!!'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
+<app-alert [message]="'Incorrect email address or password'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
 <div class="container">
-    <form class="form-inline" (ngSubmit)="onSubmit()" #f="ngForm">
-      <div class="form-group ">
-        <label class="form-label row styled-label"  for="email">Email </label>
+    <form class=" form-inline card" (ngSubmit)="onSubmit()" #f="ngForm">
+      <br>
+      <div class="form-group " *ngIf="signUpFlag">
+        <label class="form-label styled-label"  for="myName">Name </label>
 
-        <input class=" form-control form-control-lg row"
+        <input class=" form-control form-control-lg "
+         type="text" 
+         id="myName"
+          name="myName" 
+          placeholder="Enter Your Name" 
+          ngModel
+          required
+          #myName="ngModel"
+          #hi = "ngModel"
+          >
+
+      </div>
+      <!-- <small style="color: red;" *ngIf="!hi.valid &&myName.touched">Name is required. Please Enter it!</small> -->
+
+      <br>
+
+      <div class="form-group ">
+        <label class="form-label styled-label"  for="email">Email </label>
+
+        <input class=" form-control form-control-lg "
          type="email" 
          id="email"
           name="email" 
@@ -14,21 +34,28 @@
            email 
            required
            #email="ngModel">
-           <small *ngIf="!email.valid &&email.touched">Email is required. Please Enter it!</small>
 
       </div>
-      <br>
-      <div class="form-group ">
-        <label class="form-label row styled-label" for="password">Password</label>
+      <small style="color: red;" *ngIf="!email.valid &&email.touched">Email is required. Please Enter it!</small>
+      <small style="color: red;" *ngIf="!uniqueEmail">Email already exists</small>
 
-        <input class="form-control form-control-lg row" type="password" id="password" placeholder="Password"
+      <br>
+      <div class="form-group">
+        <label class="form-label  styled-label" for="password">Password</label>
+
+        <input class="form-control form-control-lg " type="password" id="password" placeholder="Password"
          name="password" ngModel  required   #pass="ngModel">
-        <small *ngIf="!pass.valid&&pass.touched">Password is required. Please Enter it!</small>
   
     </div>
+    <small style="color: red;"  *ngIf="!pass.valid&&pass.touched">Password is required. Please Enter it!</small>
+
       <br>
-      <button  [disabled]="!f.valid" class= "btn btn-primary btn-lg" type="submit">Login</button>
-      
+      <div class="form-group">
+
+      <button  [disabled]="!f.valid" class= "btn btn-primary btn-lg" type="submit">{{signUpFlag?'Sign up':'Log in'}}</button>
+      <a type="button" (click)="signUpActivate()" class="link-primary signUpLink">{{signUpFlag?'Log in':'Sign up'}}</a>
+      </div>
+      <br>
     </form>
   </div>
   

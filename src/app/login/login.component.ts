@@ -1,5 +1,5 @@
 import { LogingService } from './loging.service';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   @ViewChild("f") siginForm: NgForm;
 
   userData = {
@@ -17,34 +17,62 @@ export class LoginComponent {
     name: ''
   };
   error = false;
+  signUpFlag = false;
+  uniqueEmail = true;
 
   constructor(private router: Router, private LogingService: LogingService) { }
+  ngOnInit(): void {
+    // this.siginForm.reset();
+  }
 
 
   onSubmit() {
-    // console.log("hiiiiii");
-    this.userData.email = this.siginForm.value.email;
-    this.userData.password = this.siginForm.value.password;
-    // console.log(this.LogingService.login(this.userData)+"kkkkkkk");
-   
-    if (this.LogingService.login(this.userData)!="false") {
-      this.userData.name=this.LogingService.login(this.userData);
-     
-      console.log("true");
-      // this.error=false;
-      localStorage.setItem("userData", JSON.stringify(this.userData));
-      this.router.navigate(['/Catalog']);
-    }
-    else {
-      console.log("false");
-      this.error = true;
+    this.uniqueEmail=true;
 
+    if(this.signUpFlag){
+      this.userData.email = this.siginForm.value.email;
+      this.userData.password = this.siginForm.value.password;
+      this.userData.name = this.siginForm.value.myName;
+      if(this.LogingService.checkEmail(this.userData.email)){
+        this.uniqueEmail=false;
+        return;
+      }
+      this.LogingService.signUp(this.userData);
+      this.signUpActivate()
+      return this.router.navigate(['/']);
+        }
+    else{
+      this.userData.email = this.siginForm.value.email;
+      this.userData.password = this.siginForm.value.password;
+      const userName = this.LogingService.login(this.userData);
+  
+      if ( userName!= "false") {
+        this.userData.name = userName;
+        localStorage.setItem("userData", JSON.stringify(this.userData));
+        this.router.navigate(['/Catalog']);
+      }
+      else {
+        console.log("false");
+        this.error = true;
+  
+      }
+      if(this.uniqueEmail){
+        this.siginForm.reset();
+
+      }
     }
-    this.siginForm.reset();
+    
   }
   RemovePopUpScreen() {
     this.error = false;
   }
+  signUpActivate() {
+    this.signUpFlag = !this.signUpFlag;
+   
 
+
+
+
+  }
 
 }
