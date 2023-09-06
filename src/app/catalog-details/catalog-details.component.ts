@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { CatalogDetailsService } from "../shared/catalogdetails/catalog-details.service"
-import { catalogDetails } from '../shared/catalogdetails/catalogDetails.model';
+import { catalogDetails } from '../shared/catalogdetailsModel/catalogDetails.model';
 
 
 @Component({

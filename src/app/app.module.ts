@@ -1,7 +1,8 @@
+import { DetailsGuardService } from './details.guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './NotUsedAnyMore/app-routing.module';
 import { AppComponent } from './app.component';
 import { ServersComponent } from './servers/servers.component';
 import { LoginComponent } from './login/login.component';
@@ -20,7 +21,7 @@ import { AuthGuardService } from './auth.guard.service';
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "Catalog", canActivate:[AuthGuardService],component: CatalogComponent },
-  { path: "CatalogDetails",canActivate:[AuthGuardService], component: CatalogDetailsComponent },
+  { path: "CatalogDetails",canActivate:[AuthGuardService,DetailsGuardService], component: CatalogDetailsComponent },
   { path: "notFound", component: PageNotFoundComponent },
   { path: "**", redirectTo: "/notFound" }
 ];

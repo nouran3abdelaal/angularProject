@@ -1,4 +1,3 @@
-import { CatalogDetailsService } from './../shared/catalogdetails/catalog-details.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -17,7 +16,7 @@ export class NavBarComponent implements OnInit{
     name: ''
   };
   moive =null
-constructor(private router: Router, private CatalogDetailsService: CatalogDetailsService,private route: ActivatedRoute) {}
+constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem("userData"));
     const currentRoute = this.route.snapshot.routeConfig?.path;

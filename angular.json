@@ -4,6 +4,15 @@
   "newProjectRoot": "projects",
   "projects": {
     "my-first-app": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "ar-EG": {
+            "translation": "src/locale/messages.ar.xlf",
+            "baseHref": "ar-EG/"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,6 +22,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "localize": [
+              "ar-EG"
+            ],
             "outputPath": "dist/my-first-app",
             "index": "src/index.html",
             "main": "src/main.ts",

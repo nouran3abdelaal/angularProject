@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FetchMoivesService } from './fetch-moives.service';
-import {catalogDetails} from "../shared/catalogdetails/catalogDetails.model"
+import {catalogDetails} from "../shared/catalogdetailsModel/catalogDetails.model"
 // import {CatalogDetailsService} from "../shared/catalogdetails/catalog-details.service"
 import { Router } from '@angular/router';
 

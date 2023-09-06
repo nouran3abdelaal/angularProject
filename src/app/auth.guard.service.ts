@@ -15,8 +15,5 @@ export class AuthGuardService implements CanActivate{
       return true
     }
     return this.router.createUrlTree(['']);
-
-
-    throw new Error('Method not implemented.');
   }
 }
