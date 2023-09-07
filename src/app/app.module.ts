@@ -17,6 +17,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { CatalogDetailsComponent } from './catalog-details/catalog-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService } from './auth.guard.service';
+// import { MatButtonModule } from '@angular/material/button';
+// import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -38,6 +40,8 @@ const routes: Routes = [
     LoadingSpinnerComponent,
     CatalogDetailsComponent,
     PageNotFoundComponent
+    // MatButtonModule,
+    // MatIconModule
   ],
   imports: [
     BrowserModule,

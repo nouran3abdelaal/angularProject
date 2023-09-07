@@ -5,9 +5,10 @@
   "projects": {
     "my-first-app": {
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": "ar-EG",
         "locales": {
           "ar-EG": {
+            "fr":"src/locale/messages.fr.xlf",
             "translation": "src/locale/messages.ar.xlf",
             "baseHref": "ar-EG/"
           }
@@ -107,8 +108,6 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "karmaConfig": "karma.conf.js",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
