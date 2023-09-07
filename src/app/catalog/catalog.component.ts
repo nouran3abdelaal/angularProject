@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FetchMoivesService } from './fetch-moives.service';
-import {catalogDetails} from "../shared/catalogdetailsModel/catalogDetails.model"
-// import {CatalogDetailsService} from "../shared/catalogdetails/catalog-details.service"
+import { catalogDetails } from "../shared/catalogdetailsModel/catalogDetails.model"
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
@@ -19,12 +20,11 @@ export class CatalogComponent implements OnInit {
     name: ''
   };
   fetching = false;
-  moives : catalogDetails[] =[]
+  moives: catalogDetails[] = []
 
-  nouran:any;
-//  private CatalogDetailsService : CatalogDetailsService,
-  constructor(private http:HttpClient, private fetchMoives: FetchMoivesService,
-    private router: Router){
+  nouran: any;
+  constructor(private http: HttpClient, private fetchMoives: FetchMoivesService,
+    private router: Router) {
 
   }
 
@@ -32,25 +32,25 @@ export class CatalogComponent implements OnInit {
     this.fetching = true;
     this.userData = JSON.parse(localStorage.getItem("userData"));
     console.log(JSON.parse(localStorage.getItem("userData")));
-    this.fetchMoives.fetchPosts().subscribe(moive=>{
+    this.fetchMoives.fetchPosts().subscribe(moive => {
       this.nouran = moive;
       // let n of this.nouran.results
       // console.log(moive);
-      this.fetching =false;
-    // debugger
+      this.fetching = false;
+      // debugger
     })
 
   }
 
-//  fetchPosts(){
-//  }
-seeMoreMethod(nouran2:any){
-   const  details  = new catalogDetails(nouran2.original_language,nouran2.original_title,nouran2.vote_average,
-    nouran2.vote_count,nouran2.overview,nouran2.poster_path,nouran2.release_date);
+  //  fetchPosts(){
+  //  }
+  seeMoreMethod(nouran2: any) {
+    const details = new catalogDetails(nouran2.original_language, nouran2.original_title, nouran2.vote_average,
+      nouran2.vote_count, nouran2.overview, nouran2.poster_path, nouran2.release_date);
     // this.CatalogDetailsService.moive = details;
-    localStorage.setItem("moiveDetails",JSON.stringify(details));
+    localStorage.setItem("moiveDetails", JSON.stringify(details));
 
-  console.log(details);
-  this.router.navigate(['/CatalogDetails']);
-}
+    console.log(details);
+    this.router.navigate(['/CatalogDetails']);
+  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogingService } from './login/loging.service';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',

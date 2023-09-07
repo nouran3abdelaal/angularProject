@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit{
 constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem("userData"));
-    const currentRoute = this.route.snapshot.routeConfig?.path;
+    const currentRoute = this.route.snapshot?.routeConfig?.path;
     console.log('Current Route:', currentRoute);
     this.moive = currentRoute=="Catalog"?false:true;
   }

@@ -1,10 +1,9 @@
   <nav class="navbar ">
-    <!-- <div class=" justify-content-start"> -->
       <div class="nav-item" *ngIf="moive" >
         <a class="nav-link" routerLink="/Catalog">Back to All Moives</a>
       </div>
       <div class="nav-item" >
-        <span><strong>Welcome {{userData.name}}</strong></span>
+        <span><strong>Welcome {{userData?.name}}</strong></span>
 
       </div>
 
@@ -12,7 +11,6 @@
         <button class="btn  me-2 logoutButon" type="button" (click)="logout()">LogOut</button>
 
       </div>
-      <!-- <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button> -->
-    <!-- </div> -->
+    
   </nav>
 

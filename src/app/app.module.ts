@@ -1,10 +1,8 @@
 import { DetailsGuardService } from './details.guard.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './NotUsedAnyMore/app-routing.module';
 import { AppComponent } from './app.component';
-import { ServersComponent } from './servers/servers.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './alert/alert.component';
@@ -17,8 +15,9 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { CatalogDetailsComponent } from './catalog-details/catalog-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuardService } from './auth.guard.service';
-// import { MatButtonModule } from '@angular/material/button';
-// import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -31,7 +30,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ServersComponent,
     LoginComponent,
     AlertComponent,
     NavBarComponent,
@@ -40,7 +38,7 @@ const routes: Routes = [
     LoadingSpinnerComponent,
     CatalogDetailsComponent,
     PageNotFoundComponent
-    // MatButtonModule,
+    
     // MatIconModule
   ],
   imports: [
@@ -48,7 +46,10 @@ const routes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule
 
   ],
   providers: [],

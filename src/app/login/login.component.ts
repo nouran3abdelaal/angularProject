@@ -2,6 +2,7 @@ import { LogingService } from './loging.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,6 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private LogingService: LogingService) { }
   ngOnInit(): void {
-    // this.siginForm.reset();
   }
 
 

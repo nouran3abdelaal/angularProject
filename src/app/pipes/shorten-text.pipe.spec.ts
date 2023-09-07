@@ -1,8 +1,13 @@
-import { ShortenTextPipe } from './shorten-text.pipe';
+import { ComponentFixture, inject } from "@angular/core/testing";
+import { Router } from '@angular/router';
+import { ShortenTextPipe } from "./shorten-text.pipe";
 
-describe('ShortenTextPipe', () => {
-  it('create an instance', () => {
-    const pipe = new ShortenTextPipe();
-    expect(pipe).toBeTruthy();
+
+
+it('should return correct answer',  () => {
+    const testEmail = "user1@example.com_user1@example.com_user1@example.com";
+    let shortenPipe = new ShortenTextPipe();
+    const result = shortenPipe.transform(testEmail);
+
+    expect(result).toEqual("user1@example.com_user1@example.com_user1@example. ..."); 
   });
-});

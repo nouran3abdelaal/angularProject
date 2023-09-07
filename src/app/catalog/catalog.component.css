@@ -11,19 +11,15 @@
     background-color: #F9F7F7;
     margin-bottom: 3%;
 }
-/* .myNavy{
-    padding: auto;
-    height: 100%;
-    position: relative;
-    top: 20;
-} */
+
 
 .card-title {
-    /* height: max-content; */
     min-height: 48px;
-    /* margin-bottom: var(--bs-card-title-spacer-y);
-    color: var(--bs-card-title-color); */
+    font-weight: bold;
+    font-size: large;
+    
 }
 img.card-img-top {
     min-height: 426px;
 }
+
