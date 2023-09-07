@@ -44,6 +44,23 @@
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.es.ts"
+                }
+              ],
+              "ar": {
+                "fileReplacements": [
+                  {
+                    "replace": "src/environments/environment.ts",
+                    "with": "src/environments/environment.ar.ts"
+                  }
+                ],
+                "outputPath": "dist/ar",
+                "i18nLocale": "ar",
+                "i18nFile": "src/locale/messages.ar.xlf"
+              },
               "budgets": [
                 {
                   "type": "initial",
@@ -90,6 +107,8 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "karma.conf.js",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
