@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -9,14 +10,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit{
-  // [x: string]: any;
   userData = {
     email: ' ',
     password: ' ',
     name: ''
   };
   moive =null
-constructor(private router: Router, private route: ActivatedRoute) {}
+constructor(private router: Router, private route: ActivatedRoute,public translate:TranslateService) {}
   ngOnInit(): void {
     this.userData = JSON.parse(localStorage.getItem("userData"));
     const currentRoute = this.route.snapshot?.routeConfig?.path;

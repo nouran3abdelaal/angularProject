@@ -1,29 +1,28 @@
-<!-- <p>catalog-details works!</p>
-<p>{{moive?.getTitle()}}</p> -->
+
 <app-nav-bar></app-nav-bar>
 <div class="container">
 
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src=  "https://image.tmdb.org/t/p/original{{moive?.getImageURL()}}" class="img-fluid rounded-start" alt="...">
+            <!-- https://api.themoviedb.org/3/movie{moive?.getId()}}/images -->
+            <img src=  "https://image.tmdb.org/t/p/original{{moiveTemp?.poster_path}}" class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">{{moive?.getTitle()}}</h5>
-              <p class="card-text"><strong>Overview: </strong> {{moive?.getOverview()}}</p>
+              <h5 class="card-title">{{moiveTemp?.original_title}}</h5>
+              <p class="card-text"><strong>Overview: </strong> {{moiveTemp?.overview}}</p>
               <hr>
-              <p class="card-text">  <strong>Release Date:</strong> {{moive?.getDate()}}</p>
-              <hr>
-
-              <p class="card-text"><strong>Language: </strong>{{moive?.getLanguage() |uppercase}}</p>
+              <p class="card-text">  <strong>Release Date:</strong> {{moiveTemp?.release_date}}</p>
               <hr>
 
-              <p class="card-text"><strong>Vote Avergare:</strong> {{moive?.getVoteAvergare()}}</p>
+              <p class="card-text"><strong>Language: </strong>{{moiveTemp?.original_language |uppercase}}</p>
               <hr>
 
-              <p class="card-text"><strong>Vote Count:</strong> {{moive?.getVoteCount()}}</p>
-              <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
+              <p class="card-text"><strong>Vote Avergare:</strong> {{moiveTemp?.vote_average}}</p>
+              <hr>
+
+              <p class="card-text"><strong>Vote Count:</strong> {{moiveTemp?.vote_count}}</p>
 
             </div>
           </div>

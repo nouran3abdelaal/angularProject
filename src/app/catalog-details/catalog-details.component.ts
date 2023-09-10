@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { CatalogDetailsService } from "../shared/catalogdetails/catalog-details.service"
 import { catalogDetails } from '../shared/catalogdetailsModel/catalogDetails.model';
-import { MatIconModule } from '@angular/material/icon';
+import { FetchMoiveService } from './fetch-moive.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,19 +11,25 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class CatalogDetailsComponent implements OnInit {
   moive : catalogDetails = null;
+  moiveTemp : any;
+  userId='';
 
-  constructor() {
+  constructor(private fectchMoive: FetchMoiveService,private route: ActivatedRoute) {
 
   }
   ngOnInit(): void {
-   const temp =  JSON.parse(localStorage.getItem("moiveDetails"));
-   if (temp && temp.language) {
-    console.log(temp.language);
-    this.moive = new catalogDetails(temp.language,temp.title,temp.vote_average,temp.vote_count,temp.overview,temp.imageUrl,temp.release_date)
+    this.route.params.subscribe(params => {
+    
+      this.userId = params['id'];
+    }
+    )
+    this.moiveTemp = this.fectchMoive.fetchPosts(this.userId).subscribe(moive => {
+      this.moiveTemp = moive;
+      console.log(moive)
+     
+    })
+  }
+ 
 
-  } else {
   }
 
-
-  }
-}

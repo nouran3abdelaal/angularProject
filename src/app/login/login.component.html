@@ -4,46 +4,43 @@
   <form class=" form-inline card" (ngSubmit)="onSubmit()" #f="ngForm">
     <br>
     <div class="form-group " *ngIf="signUpFlag">
-      <label class="form-label styled-label" for="myName" il8n="@@Name">Name </label>
+      <label class="form-label styled-label" for="myName" il8n="@@Name">{{"NAME"|translate}} </label>
 
-      <input class=" form-control form-control-lg " type="text" id="myName" name="myName" placeholder="Enter Your Name"
+      <input class=" form-control form-control-lg " type="text" id="myName" name="myName" placeholder= "{{'PHName'|translate}}"
         ngModel required #myName="ngModel" #hi="ngModel" il8n-placeholder>
 
     </div>
-    <!-- <small style="color: red;" *ngIf="!hi.valid &&myName.touched">Name is required. Please Enter it!</small> -->
 
     <br>
 
     <div class="form-group ">
-      <label class="form-label styled-label" for="email" il8n="@@email">Email </label>
+      <label class="form-label styled-label" for="email" il8n="@@email">{{"EMAIL"|translate}} </label>
 
-      <input class=" form-control form-control-lg " type="email" id="email" name="email" placeholder="Enter email"
+      <input class=" form-control form-control-lg " type="email" id="email" name="email" placeholder="{{'PHEmail'|translate}}"
         ngModel email required #email="ngModel" il8n-placeholder>
 
     </div>
-    <small style="color: red;" *ngIf="!email.valid &&email.touched" i18n="@@emailRequired">Email is required. Please
-      Enter it!</small>
-    <small style="color: red;" *ngIf="!uniqueEmail" i18n="@@emailExists">Email already exists</small>
+    <small style="color: red;" *ngIf="!email.valid &&email.touched" i18n="@@emailRequired">{{"emailRequired"|translate}}</small>
+    <small style="color: red;" *ngIf="!uniqueEmail && signUpFlag" i18n="@@emailExists">{{"emailExists"|translate}}</small>
 
     <br>
     <div class="form-group">
-      <label class="form-label  styled-label" for="password" i18n="@@Password">Password</label>
+      <label class="form-label  styled-label" for="password" i18n="@@Password">{{"Password"|translate}}</label>
 
-      <input class="form-control form-control-lg " type="password" id="password" placeholder="Password" name="password"
+      <input class="form-control form-control-lg " type="password" id="password" placeholder="{{'PHPass'|translate}}" name="password"
         ngModel required #pass="ngModel" il8n-placeholder>
 
 
     </div>
-    <small style="color: red;" *ngIf="!pass.valid&&pass.touched" i18ni18n="@@PasswordRequired">Password is required.
-      Please Enter it!</small>
+    <small style="color: red;" *ngIf="!pass.valid&&pass.touched" i18ni18n="@@PasswordRequired">{{'PasswordRequired'|translate}}</small>
 
     <br>
     <div class="form-group">
 
-      <button [disabled]="!f.valid" class="btn btn-primary btn-lg" type="submit" i18n="@@button">{{signUpFlag?'Sign
-        up':'Log in'}}</button>
-      <a type="button" (click)="signUpActivate()" class="link-primary signUpLink" i18n="@@link">{{signUpFlag?'Log
-        in':'Sign up'}}</a>
+      <button [disabled]="!f.valid" class="btn btn-primary btn-lg" type="submit" i18n="@@button">
+        {{signUpFlag?'Signup':'Log in'}}</button>
+      <a type="button" (click)="signUpActivate()" class="link-primary signUpLink" i18n="@@link">
+        {{signUpFlag?'Log in':'Sign up'}}</a>
     </div>
     <br>
   </form>

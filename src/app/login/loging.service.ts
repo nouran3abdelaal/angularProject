@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
-import * as usersArray from '../Users.json';
 import { Router } from '@angular/router';
-// import { log } from 'console';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class LogingService {
     ];
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private route: ActivatedRoute,private location: Location) { }
 
 
   login(userToSearch: { email: string, password: string, name: string }) {
@@ -55,12 +55,7 @@ export class LogingService {
     this.myUsers.push(userToAdd);
 
   }
-  autoLoading() {
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    if (!userData) {
-      return;
-    }
-  }
+ 
 
   checkEmail(email: string) {
     console.log(this.myUsers);
@@ -78,4 +73,8 @@ export class LogingService {
 }
 
 
+
+function getPreviousUrl() {
+  throw new Error('Function not implemented.');
+}
 

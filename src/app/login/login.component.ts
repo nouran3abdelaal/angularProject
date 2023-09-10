@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   signUpFlag = false;
   uniqueEmail = true;
 
-  constructor(private router: Router, private LogingService: LogingService) { }
+  constructor(private router: Router, private LogingService: LogingService, public translate:TranslateService) { }
   ngOnInit(): void {
   }
 

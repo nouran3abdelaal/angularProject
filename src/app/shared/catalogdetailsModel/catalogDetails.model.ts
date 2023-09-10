@@ -44,6 +44,7 @@ vote_count
 1314
     */
     constructor(
+        private id ="",
         private language = "English",
         private  title = "",
         private  vote_average = "",
@@ -74,6 +75,9 @@ vote_count
     }
     getDate() {
         return this.release_date;
+    }
+    getId(){
+        return this.getId;
     }
    
 }

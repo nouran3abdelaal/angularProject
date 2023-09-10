@@ -20,9 +20,8 @@ export class CatalogComponent implements OnInit {
     name: ''
   };
   fetching = false;
-  moives: catalogDetails[] = []
 
-  nouran: any;
+  moives: any;
   constructor(private http: HttpClient, private fetchMoives: FetchMoivesService,
     private router: Router) {
 
@@ -33,24 +32,23 @@ export class CatalogComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem("userData"));
     console.log(JSON.parse(localStorage.getItem("userData")));
     this.fetchMoives.fetchPosts().subscribe(moive => {
-      this.nouran = moive;
-      // let n of this.nouran.results
-      // console.log(moive);
+      this.moives = moive;
+    
       this.fetching = false;
-      // debugger
     })
 
   }
 
-  //  fetchPosts(){
-  //  }
-  seeMoreMethod(nouran2: any) {
-    const details = new catalogDetails(nouran2.original_language, nouran2.original_title, nouran2.vote_average,
-      nouran2.vote_count, nouran2.overview, nouran2.poster_path, nouran2.release_date);
-    // this.CatalogDetailsService.moive = details;
-    localStorage.setItem("moiveDetails", JSON.stringify(details));
+ 
+  seeMoreMethod(moive: any) {
+    // const details = new catalogDetails(moive.original_language, moive.original_title, moive.vote_average,
+    //   moive.vote_count, moive.overview, moive.poster_path, moive.release_date);
+    // localStorage.setItem("moiveDetails", JSON.stringify(details));
 
-    console.log(details);
-    this.router.navigate(['/CatalogDetails']);
+    console.log( moive.id);
+    // this.router.navigate(['/CatalogDetails']);
+    this.router.navigate(['/CatalogDetails', moive.id]);
+
+
   }
 }
