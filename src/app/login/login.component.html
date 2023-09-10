@@ -1,6 +1,6 @@
 <!-- login.component.html -->
-<button class="btn  me-2 logoutButon" type="button" (click)="translate.use('en')">EN</button>
-<button class="btn  me-2 logoutButon" type="button" (click)="translate.use('ar')">AR</button>
+<button class="btn  me-2 " type="button" (click)="translate.use('en')">EN</button>
+<button class="btn  me-2 " type="button" (click)="translate.use('ar')">AR</button>
 
 <app-alert [message]="'Incorrect email address or password'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
 <div class="container">
