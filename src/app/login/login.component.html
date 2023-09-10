@@ -1,4 +1,7 @@
 <!-- login.component.html -->
+<button class="btn  me-2 logoutButon" type="button" (click)="translate.use('en')">EN</button>
+<button class="btn  me-2 logoutButon" type="button" (click)="translate.use('ar')">AR</button>
+
 <app-alert [message]="'Incorrect email address or password'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
 <div class="container">
   <form class=" form-inline card" (ngSubmit)="onSubmit()" #f="ngForm">
@@ -38,9 +41,9 @@
     <div class="form-group">
 
       <button [disabled]="!f.valid" class="btn btn-primary btn-lg" type="submit" i18n="@@button">
-        {{signUpFlag?'Signup':'Log in'}}</button>
+        {{signUpFlag?('Signup'|translate):('Login'|translate)}}</button>
       <a type="button" (click)="signUpActivate()" class="link-primary signUpLink" i18n="@@link">
-        {{signUpFlag?'Log in':'Sign up'}}</a>
+        {{signUpFlag?('Login'|translate):('Signup'|translate)}}</a>
     </div>
     <br>
   </form>
