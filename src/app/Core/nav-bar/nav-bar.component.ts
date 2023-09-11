@@ -18,6 +18,10 @@ export class NavBarComponent implements OnInit{
   moive =null
 constructor(private router: Router, private route: ActivatedRoute,public translate:TranslateService) {}
   ngOnInit(): void {
+    this.intialSetting();
+  }
+  //geting user data form local storage and checking if i should add the button that goes back to all moives
+  intialSetting(){
     this.userData = JSON.parse(localStorage.getItem("userData"));
     const currentRoute = this.route.snapshot?.routeConfig?.path;
     console.log('Current Route:', currentRoute);

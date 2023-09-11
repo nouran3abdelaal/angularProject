@@ -24,23 +24,23 @@ export class CatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getingAllMoives();
+
+
+  }
+
+  getingAllMoives() {
     this.fetching = true;
     this.userData = JSON.parse(localStorage.getItem("userData"));
     console.log(JSON.parse(localStorage.getItem("userData")));
     this.fetchMoives.fetchPosts().subscribe(moive => {
       this.moives = moive;
-    
+
       this.fetching = false;
     })
-
   }
-
- 
+  
   seeMoreMethod(moive: any) {
-    
-    console.log( moive.id);
     this.router.navigate(['/CatalogDetails', moive.id]);
-
-
   }
 }

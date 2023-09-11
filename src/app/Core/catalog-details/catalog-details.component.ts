@@ -18,6 +18,10 @@ export class CatalogDetailsComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    this.getingMoiveDetails();
+  }
+ 
+  getingMoiveDetails(){
     this.route.params.subscribe(params => {
     
       this.moiveID = params['id'];
@@ -29,7 +33,6 @@ export class CatalogDetailsComponent implements OnInit {
      
     })
   }
- 
 
   }
 
