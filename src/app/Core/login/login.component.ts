@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild("f") siginForm: NgForm;
+  @ViewChild("form") siginForm: NgForm;
 
   userData = {
     email: ' ',

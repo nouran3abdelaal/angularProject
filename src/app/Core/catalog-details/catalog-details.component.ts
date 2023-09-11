@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CatalogDetailsComponent implements OnInit {
   moive : catalogDetails = null;
   moiveTemp : any;
-  userId='';
+  moiveID='';
 
   constructor(private fectchMoive: FetchMoiveService,private route: ActivatedRoute) {
 
@@ -20,10 +20,10 @@ export class CatalogDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
     
-      this.userId = params['id'];
+      this.moiveID = params['id'];
     }
     )
-    this.moiveTemp = this.fectchMoive.fetchPosts(this.userId).subscribe(moive => {
+    this.moiveTemp = this.fectchMoive.fetchPosts(this.moiveID).subscribe(moive => {
       this.moiveTemp = moive;
       console.log(moive)
      
