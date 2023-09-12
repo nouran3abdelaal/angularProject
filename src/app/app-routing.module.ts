@@ -4,7 +4,7 @@ import { LoginComponent } from './Core/login/login.component';
 import { AuthGuardLoginService } from './auth.guard.login.service';
 import { AuthGuardService } from './auth.guard.service';
 import { CatalogComponent } from './Core/catalog/catalog.component';
-import { PageNotFoundComponent } from './Core/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { CatalogDetailsComponent } from './Core/catalog-details/catalog-details.component';
 
 

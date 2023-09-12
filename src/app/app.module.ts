@@ -1,61 +1,32 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './Core/login/login.component';
-import { FormsModule } from '@angular/forms';
-import { AlertComponent } from './Core/alert/alert.component';
-import { NavBarComponent } from './Core/nav-bar/nav-bar.component';
-import { CatalogComponent } from './Core/catalog/catalog.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ShortenTextPipe } from './Core/pipes/shorten-text.pipe';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
-import { CatalogDetailsComponent } from './Core/catalog-details/catalog-details.component';
-import { PageNotFoundComponent } from './Core/page-not-found/page-not-found.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { Location } from '@angular/common';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { CatalogModule } from './Core/catalog/catalog.module';
+import { CatalogDetailsModule } from './Core/catalog-details/catalog-details.module';
+import { LoginModule } from './Core/login/login.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    AlertComponent,
-    NavBarComponent,
-    CatalogComponent,
-    ShortenTextPipe,
-    LoadingSpinnerComponent,
-    CatalogDetailsComponent,
-    PageNotFoundComponent
     
   ],
   imports: [
     AppRoutingModule,
+    SharedModule,
+    CatalogModule,
+    CatalogDetailsModule,
+    LoginModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatIconModule,
-    TranslateModule.forRoot({
-      defaultLanguage:'en',
-      loader:{ 
-      provide:TranslateLoader,
-      useFactory: createTranslateLoader,
-      deps:[HttpClient]
-      }
-    })
-
+    BrowserAnimationsModule
+    // BrowserAnimationsModule,
   ],
-  providers: [Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export function createTranslateLoader(http:HttpClient){
-  return new TranslateHttpLoader(http,'./assets/il8n/','.json');
-}
+

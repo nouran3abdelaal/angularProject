@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, async, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { NavBarComponent } from '../../shared/nav-bar/nav-bar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CatalogComponent } from './catalog.component';
 import { CUSTOM_ELEMENTS_SCHEMA, Injectable } from '@angular/core';
