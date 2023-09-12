@@ -2,7 +2,7 @@
 <button class="btn  me-2 " type="button" (click)="translate.use('en')">EN</button>
 <button class="btn  me-2 " type="button" (click)="translate.use('ar')">AR</button>
 
-<app-alert [message]="'Incorrect email address or password'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
+<app-alert [message]="'Email Already Exists'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
 <div class="container" [ngClass]="{'rtl-layout': translate.currentLang === 'ar', 'ltr-layout': translate.currentLang !== 'ar'}">
   <form class=" form-inline card" (ngSubmit)="onSubmit()" #form="ngForm">
     <br>
@@ -17,28 +17,24 @@
     <small style="color: red;" *ngIf="!myName.valid &&myName.touched" >{{"nameRequired"|translate}}</small>
 
     <br>
-    <!-- *ngIf="translate.currentLang !== 'ar'" -->
     <div class="form-group ">  
       <label  class="form-label styled-label" for="email" >{{"EMAIL"|translate}} </label>
 
       <input class=" form-control form-control-lg " type="email" id="email" name="email" placeholder="{{'PHEmail'|translate}}"
         ngModel email required #email="ngModel">
-        <!-- <label *ngIf="translate.currentLang === 'ar'" class="form-label styled-label" for="email" >{{"EMAIL"|translate}} </label> -->
 
 
     </div>
     <small style="color: red;" *ngIf="!email.valid &&email.touched" >{{"emailRequired"|translate}}</small>
-    <small style="color: red;" *ngIf="!uniqueEmail " >{{"emailExists"|translate}}</small>
+    <!-- <small style="color: red;" *ngIf="!uniqueEmail " >{{"emailExists"|translate}}</small> -->
 
     <br>
-    <!-- *ngIf="translate.currentLang !== 'ar'" -->
     <div class="form-group">
       <label  class="form-label  styled-label" for="password" >{{"Password"|translate}}</label>
 
       <input class="form-control form-control-lg " type="password" id="password" placeholder="{{'PHPass'|translate}}" name="password"
         ngModel required #pass="ngModel" >
 
-        <!-- <label *ngIf="translate.currentLang === 'ar'" class="form-label  styled-label" for="password" >{{"Password"|translate}}</label> -->
 
     </div>
     <small style="color: red;" *ngIf="!pass.valid&&pass.touched" >{{'PasswordRequired'|translate}}</small>

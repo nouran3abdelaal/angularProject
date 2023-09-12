@@ -8,8 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  // encapsulation:ViewEncapsulation.None
+  styleUrls: ['./login.component.css']
 
 })
 export class LoginComponent implements OnInit {
@@ -32,19 +31,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.uniqueEmail = true;
 
-    // if(this.signUpFlag){
-    //   this.userData.email = this.siginForm.value.email;
-    //   this.userData.password = this.siginForm.value.password;
-    //   this.userData.name = this.siginForm.value.myName;
-    //   if(this.LogingService.checkEmail(this.userData.email)){
-    //     this.uniqueEmail=false;
-    //     return;
-    //   }
-    //   this.LogingService.signUp(this.userData);
-    //   this.signUpActivate()
-    //   return this.router.navigate(['/']);
-    //     }
-    // else{
+    
     this.userData.email = this.siginForm.value.email;
     this.userData.password = this.siginForm.value.password;
     const userName = this.LogingService.login(this.userData);
@@ -59,10 +46,7 @@ export class LoginComponent implements OnInit {
       this.error = true;
 
     }
-    // if(this.uniqueEmail){
-    //   this.siginForm.reset();
-
-    // }
+   
 
 
   }
@@ -72,14 +56,7 @@ export class LoginComponent implements OnInit {
 
   }
   signUpActivate() {
-    // this.signUpFlag = !this.signUpFlag;
     this.router.navigate(['/Register']);
-
-
-
-
-
-
 
   }
 

@@ -10,7 +10,6 @@ import { LogingService } from '../login/loging.service';
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  // encapsulation:ViewEncapsulation.None
 
 })
 export class SignUpComponent implements OnInit {
@@ -42,33 +41,14 @@ export class SignUpComponent implements OnInit {
       if(this.LogingService.checkEmail(this.userData.email)){
         this.uniqueEmail=false;
         this.emailInput.reset();
-        // this.uniqueEmail=true;
+        this.error = true;
 
         return;
       }
       this.LogingService.signUp(this.userData);
       return this.router.navigate(['/']);
-       // }
-    // else{
-    //   this.userData.email = this.siginForm.value.email;
-    //   this.userData.password = this.siginForm.value.password;
-    //   const userName = this.LogingService.login(this.userData);
-  
-    //   if ( userName!= "false") {
-    //     this.userData.name = userName;
-    //     localStorage.setItem("userData", JSON.stringify(this.userData));
-    //     this.router.navigate(['/Catalog']);
-    //   }
-    //   else {
-    //     console.log("false");
-    //     this.error = true;
-  
-    //   }
-      // if(this.uniqueEmail){
-      //   this.siginForm.reset();
-
-      // }
-    // }
+      
+    
   }
   
   RemovePopUpScreen() {
