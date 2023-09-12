@@ -1,7 +1,5 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { NgControl, NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { LogingService } from '../login/loging.service';

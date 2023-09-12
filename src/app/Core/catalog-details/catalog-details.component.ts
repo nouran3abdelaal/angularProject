@@ -22,12 +22,12 @@ export class CatalogDetailsComponent implements OnInit {
   }
  
   getingMoiveDetails(){
-    this.route.params.subscribe(params => {
+    this.route.params?.subscribe(params => {
     
       this.moiveID = params['id'];
     }
     )
-    this.moiveTemp = this.fectchMoive.fetchPosts(this.moiveID).subscribe(moive => {
+    this.moiveTemp = this.fectchMoive.fetchPosts(this.moiveID)?.subscribe(moive => {
       this.moiveTemp = moive;
       console.log(moive)
      

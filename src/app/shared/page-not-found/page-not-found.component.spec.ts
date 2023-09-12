@@ -18,4 +18,9 @@ describe('PageNotFoundComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should render the "Page Not Found" text', () => {
+    const element: HTMLElement = fixture.nativeElement;
+    const text = element.querySelector('strong')?.textContent;
+    expect(text).toContain('Page Not Found');
+  });
 });

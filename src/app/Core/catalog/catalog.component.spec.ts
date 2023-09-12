@@ -5,6 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CatalogComponent } from './catalog.component';
 import { CUSTOM_ELEMENTS_SCHEMA, Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
+const translateServiceStub = {
+  instant: (key: string) => key, 
+};
 
 @Injectable()
 export class MockCanActivateGuard implements CanActivate {
@@ -31,6 +36,8 @@ describe('CatalogComponent', () => {
         {
           provide: Router,
           useValue: {},
+        },
+        {          provide: TranslateService, useValue: translateServiceStub ,
         },
         {
           provide: MockCanActivateGuard,

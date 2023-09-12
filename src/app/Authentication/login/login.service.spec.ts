@@ -1,6 +1,5 @@
 import { ComponentFixture, inject } from "@angular/core/testing";
 import { LogingService } from "./loging.service";
-import { Router } from '@angular/router';
 
 
 

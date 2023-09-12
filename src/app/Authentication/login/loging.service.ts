@@ -31,7 +31,7 @@ export class LogingService {
     ];
 
 
-  constructor(private router: Router,private route: ActivatedRoute,private location: Location) { }
+  constructor() { }
 
 
   login(userToSearch: { email: string, password: string, name: string }) {
