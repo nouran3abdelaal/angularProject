@@ -3,25 +3,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CatalogModule } from './Core/catalog/catalog.module';
-import { CatalogDetailsModule } from './Core/catalog-details/catalog-details.module';
-import { LoginModule } from './Core/login/login.module';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './Core/core.module';
+import { SignUpComponent } from './Authentication/sign-up/sign-up.component';
+import { AuthenticationModule } from './Authentication/authentication.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent,    
   ],
   imports: [
     AppRoutingModule,
-    SharedModule,
-    CatalogModule,
-    CatalogDetailsModule,
-    LoginModule,
+   CoreModule,
+   AuthenticationModule,
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]

@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
-import { LoginComponent } from './login.component';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    
+    SignUpComponent
   ],
   imports: [
     SharedModule,
@@ -24,16 +27,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
       deps:[HttpClient]
       }
     })
-
+  ],
+  exports:[
+    LoginComponent,
+    SignUpComponent
   ]
-,
-exports:[
-  LoginComponent,
-],
-providers: [Location]
+  ,providers: [Location]
 
 })
-export class LoginModule { }
+export class AuthenticationModule { }
 export function createTranslateLoader(http:HttpClient){
   return new TranslateHttpLoader(http,'./assets/il8n/','.json');
 }

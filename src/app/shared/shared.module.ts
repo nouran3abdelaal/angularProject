@@ -27,7 +27,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NavBarComponent,
     ShortenTextPipe,
     CommonModule,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RouterModule
   ]
 })
 export class SharedModule { }

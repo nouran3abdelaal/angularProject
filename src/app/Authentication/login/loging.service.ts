@@ -74,7 +74,5 @@ export class LogingService {
 
 
 
-function getPreviousUrl() {
-  throw new Error('Function not implemented.');
-}
+
 

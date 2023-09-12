@@ -9,7 +9,8 @@
     "PHPass": "Enter Your Password",
     "PasswordRequired": "Password is required. Please Enter it!",
     "Signup":"Signup",
-    "Login":"Log in"
+    "Login":"Log in",
+    "nameRequired":"Name is required. Please Enter it!"
 
 
 

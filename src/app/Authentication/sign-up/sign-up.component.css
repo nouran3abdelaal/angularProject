@@ -1,0 +1,106 @@
+/* The style of the card having the login details */
+.container{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+}
+.form-group{
+    
+    display: flex;
+
+}
+.card{
+   
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 50vw;
+}
+
+.btn{
+    width: fit-content;
+    font-weight: bold;
+
+}
+/* The style of the label */
+.styled-label{
+    
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+}
+.ltr-layout .styled-label
+{
+    margin-right: 5%;
+
+
+}
+.rtl-layout .styled-label
+{
+    margin-left: 5%;
+
+
+}
+.rtl-layout .form-group{
+    display: flex;
+    flex-direction:row-reverse ;
+}
+.form-inline{
+    border-radius: 8px; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); 
+    padding: inherit;
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid rgb(7, 105, 218);
+}
+.form-control{
+    display: flex;
+    align-items: center;
+    padding-top: 1%;
+    
+}
+.form-control:placeholder-shown{
+    display: flex;
+    align-items: center;
+    
+}
+.rtl-layout .signUpLink{
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+.rtl-layout input::placeholder{
+   
+    text-align: right;
+}
+.ltr-layout .signUpLink{
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .form-group{
+        display: flex;
+       flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: max-content;
+    }
+    .signUpLink{
+        position: initial;
+        margin-top: 8px;
+    }
+
+}

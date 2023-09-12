@@ -7,15 +7,7 @@
   <form class=" form-inline card" (ngSubmit)="onSubmit()" #form="ngForm">
     <br>
     <!-- *ngIf="translate.currentLang !== 'ar'" -->
-    <div class="form-group " *ngIf="signUpFlag">
-      <label  class="form-label styled-label" for="myName" >{{"NAME"|translate}} </label>
-
-      <input class=" form-control form-control-lg " type="text" id="myName" name="myName" placeholder= "{{'PHName'|translate}}"
-        ngModel required #myName="ngModel" #hi="ngModel" >
-
-        <!-- <label *ngIf="translate.currentLang === 'ar'" class="form-label styled-label" for="myName" >{{"NAME"|translate}} </label> -->
-
-    </div>
+   
 
     <br>
     <!-- *ngIf="translate.currentLang !== 'ar'" -->
@@ -48,9 +40,9 @@
     <div class="form-group">
 
       <button [disabled]="!form.valid" class="btn btn-primary btn-lg" type="submit" >
-        {{signUpFlag?('Signup'|translate):('Login'|translate)}}</button>
+       {{'Login'|translate}}</button>
       <a type="button" (click)="signUpActivate()" class="link-primary signUpLink" >
-        {{signUpFlag?('Login'|translate):('Signup'|translate)}}</a>
+        {{'Signup'|translate}}</a>
     </div>
     <br>
   </form>
