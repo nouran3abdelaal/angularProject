@@ -62,10 +62,45 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
+            },
+            
+            "popular": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.popular.ts"
+                }
+              ]
+            },
+            "topRated": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.topRated.ts"
+                }
+              ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -75,9 +110,15 @@
             },
             "development": {
               "browserTarget": "my-first-app:build:development"
+            },
+            "topRated": {
+              "browserTarget": "my-first-app:build:topRated"
+            },
+            "popular": {
+              "browserTarget": "my-first-app:build:popular"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "popular"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
