@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LogingService } from './Core/login/loging.service';
-import { Router } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { CatalogModule } from './Core/catalog/catalog.module';
 import { CatalogDetailsModule } from './Core/catalog-details/catalog-details.module';
 import { LoginModule } from './Core/login/login.module';
@@ -24,7 +23,6 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
-    // BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]
 })
