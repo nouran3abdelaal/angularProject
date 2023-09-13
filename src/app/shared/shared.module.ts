@@ -5,7 +5,6 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShortenTextPipe } from './pipes/shorten-text.pipe';
 import { RouterModule } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -14,12 +13,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AlertComponent,
     LoadingSpinnerComponent,
     NavBarComponent,
-    ShortenTextPipe,
-    PageNotFoundComponent
+    ShortenTextPipe
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    
     
   ],exports:[
     AlertComponent,
@@ -27,7 +26,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NavBarComponent,
     ShortenTextPipe,
     CommonModule,
-    PageNotFoundComponent,
     RouterModule
   ]
 })

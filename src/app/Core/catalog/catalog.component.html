@@ -1,10 +1,11 @@
 <app-nav-bar class="myNavy"></app-nav-bar>
 <br>
+
 <app-loading-spinner *ngIf="fetching" >Loading...</app-loading-spinner>
 
 <div class="card-desk container">
 <div  *ngFor="let moive of moives?.results">
-    <div class="card  " style="width: 18rem;"   >
+    <div class="card  "    >
         <img class="card-img-top" src=  "https://image.tmdb.org/t/p/original{{moive?.poster_path}}" alt="Card image cap">
         <div class="card-body" >
           <h5 class="card-title"> {{moive?.title}}</h5>
@@ -14,3 +15,4 @@
       </div>
     </div>
 </div>
+<!-- <router-outlet></router-outlet> -->

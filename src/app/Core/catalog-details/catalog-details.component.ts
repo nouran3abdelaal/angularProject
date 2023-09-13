@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { catalogDetails } from '../../shared/catalogdetailsModel/catalogDetails.model';
-import { FetchMoiveService } from './fetch-moive.service';
+import { FetchMoiveService } from '../../services/fetch-moive.service';
 import { ActivatedRoute } from '@angular/router';
 
 

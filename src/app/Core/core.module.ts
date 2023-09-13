@@ -4,26 +4,32 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailsComponent } from './catalog-details/catalog-details.component';
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { CoreRoutingModule } from './core-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
 @NgModule({
   declarations: [
     CatalogComponent,
-    CatalogDetailsComponent
+    CatalogDetailsComponent,
+    PageNotFoundComponent
 
   ],
   imports: [
     CommonModule,
     SharedModule,
-    // RouterModule,
+    RouterModule,
+    CoreRoutingModule,
     HttpClientModule,
-   
-  ]
 
-  ,exports:[
+  ],
+
+  exports: [
     CatalogComponent,
-    CatalogDetailsComponent
+    CatalogDetailsComponent,
+    PageNotFoundComponent
   ]
 })
 export class CoreModule { }

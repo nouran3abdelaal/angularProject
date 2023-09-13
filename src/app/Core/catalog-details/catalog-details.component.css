@@ -2,11 +2,17 @@
 .container{
     margin-top: 5%;
     background-color: #F9F7F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 /* Style for the card */
 .card{
     max-width: 100vw !important;
     max-height: 100vh;
+   
 }
 .card-title{
     font-weight: bold;

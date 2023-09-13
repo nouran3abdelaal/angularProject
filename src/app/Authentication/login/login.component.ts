@@ -1,4 +1,4 @@
-import { LogingService } from './loging.service';
+import { LogingService } from '../../services/loging.service';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';

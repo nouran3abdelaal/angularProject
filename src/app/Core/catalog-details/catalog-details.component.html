@@ -1,30 +1,29 @@
-
 <app-nav-bar></app-nav-bar>
 <div class="container">
 
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <!-- https://api.themoviedb.org/3/movie{moive?.getId()}}/images -->
-            <img src=  "https://image.tmdb.org/t/p/original{{moiveTemp?.poster_path}}" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{moiveTemp?.original_title}}</h5>
-              <p class="card-text"><strong>Overview: </strong> {{moiveTemp?.overview}}</p>
-              <hr>
-              <p class="card-text">  <strong>Release Date:</strong> {{moiveTemp?.release_date}}</p>
-              <hr>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://image.tmdb.org/t/p/original{{moiveTemp?.poster_path}}" class="img-fluid rounded-start"
+          alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{moiveTemp?.original_title}}</h5>
+          <p class="card-text"><strong>Overview: </strong> {{moiveTemp?.overview}}</p>
+          <hr>
+          <p class="card-text"> <strong>Release Date:</strong> {{moiveTemp?.release_date}}</p>
+          <hr>
 
-              <p class="card-text"><strong>Language: </strong>{{moiveTemp?.original_language |uppercase}}</p>
-              <hr>
+          <p class="card-text"><strong>Language: </strong>{{moiveTemp?.original_language |uppercase}}</p>
+          <hr>
 
-              <p class="card-text"><strong>Vote Avergare:</strong> {{moiveTemp?.vote_average}}</p>
-              <hr>
+          <p class="card-text"><strong>Vote Avergare:</strong> {{moiveTemp?.vote_average}}</p>
+          <hr>
 
-              <p class="card-text"><strong>Vote Count:</strong> {{moiveTemp?.vote_count}}</p>
+          <p class="card-text"><strong>Vote Count:</strong> {{moiveTemp?.vote_count}}</p>
 
-            </div>
-          </div>
         </div>
       </div>
+    </div>
+  </div>

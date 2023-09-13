@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FetchMoivesService } from './fetch-moives.service';
+import { FetchMoivesService } from '../../services/fetch-moives.service';
 import { Router } from '@angular/router';
 
 

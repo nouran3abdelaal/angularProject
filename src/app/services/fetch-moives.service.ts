@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {environment} from '../../../environments/environment'
+import {environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -8,12 +8,12 @@ import {environment} from '../../../environments/environment'
 export class FetchMoivesService {
 
   constructor(private http:HttpClient) { 
-    console.log(environment.Moives);
+    console.log(environment.moiveURL);
 
   }
 
   fetchPosts(){
     
-   return this.http.get(environment.Moives);
+   return this.http.get(environment.moiveURL);
 }
 }

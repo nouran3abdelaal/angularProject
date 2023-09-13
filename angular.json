@@ -118,7 +118,7 @@
               "browserTarget": "my-first-app:build:popular"
             }
           },
-          "defaultConfiguration": "popular"
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

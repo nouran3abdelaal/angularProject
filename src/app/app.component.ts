@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LogingService } from './Authentication/login/loging.service';
+import { LogingService } from './services/loging.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

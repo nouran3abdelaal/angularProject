@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgControl, NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { LogingService } from '../login/loging.service';
+import { LogingService } from '../../services/loging.service';
 
 @Component({
   selector: 'app-sign-up',
