@@ -25,7 +25,7 @@ constructor(private router: Router, private route: ActivatedRoute,public transla
     this.userData = JSON.parse(localStorage.getItem("userData"));
     const currentRoute = this.route.snapshot?.routeConfig?.path;
     console.log('Current Route:', currentRoute);
-    this.moive = currentRoute=="Catalog"?false:true;
+    this.moive = currentRoute==""?false:true;
   }
   logout(){
     localStorage.removeItem("userData");

@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment'
 })
 export class FetchMoiveService implements OnInit {
 
-  userId = '';
+  moiveID = '';
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -17,7 +17,7 @@ export class FetchMoiveService implements OnInit {
   }
 
 
-  fetchPosts(userId) {
-    return this.http.get(`https://api.themoviedb.org/3/movie/${userId}?api_key=15589cd5a2d1224bff485d7f200ef63d`);
+  fetchPosts(moiveID) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${moiveID}?api_key=15589cd5a2d1224bff485d7f200ef63d`);
   }
 }
