@@ -45,4 +45,6 @@ describe('FetchMoiveService', () => {
 
     expect(responseData).toEqual(mockMovieData);
   }));
+
+  
 });

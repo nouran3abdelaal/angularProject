@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/Catalog']);
     }
     else {
-      console.log("false");
       this.error = true;
 
     }

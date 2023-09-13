@@ -32,7 +32,6 @@ export class SignUpComponent implements OnInit {
   onSubmit() {
     this.uniqueEmail=true;
 
-    // if(this.signUpFlag){
       this.userData.email = this.siginForm.value.email;
       this.userData.password = this.siginForm.value.password;
       this.userData.name = this.siginForm.value.myName;

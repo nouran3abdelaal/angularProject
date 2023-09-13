@@ -3,7 +3,7 @@ import { LogingService } from "./loging.service";
 
 
 
-it('should return false', inject([LogingService], (logingService: LogingService) => {
+it('Login service unique email check should return false', inject([LogingService], (logingService: LogingService) => {
     const testEmail = "user1@example.com";
     
     const result = logingService.checkEmail(testEmail);

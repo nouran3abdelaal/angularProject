@@ -21,7 +21,6 @@ const routes: Routes = [
   // { path: "notFound", component: PageNotFoundComponent },
   // { path: "**", redirectTo: "/notFound" }
 ];
-// D:\Sumerge Tasks\AngularLearning\my-first-app\src\app\Core\core.module.ts
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

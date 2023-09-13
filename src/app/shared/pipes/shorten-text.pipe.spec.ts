@@ -4,7 +4,7 @@ import { ShortenTextPipe } from "./shorten-text.pipe";
 
 
 
-it('should return correct answer',  () => {
+it('Shorten pipe should return correct answer',  () => {
     const testEmail = "user1@example.com_user1@example.com_user1@example.com";
     let shortenPipe = new ShortenTextPipe();
     const result = shortenPipe.transform(testEmail);

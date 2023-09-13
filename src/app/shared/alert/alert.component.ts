@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-// import { EventEmitter } from 'stream';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({

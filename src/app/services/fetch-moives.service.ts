@@ -8,7 +8,6 @@ import {environment} from '../../environments/environment'
 export class FetchMoivesService {
 
   constructor(private http:HttpClient) { 
-    console.log(environment.moiveURL);
 
   }
 

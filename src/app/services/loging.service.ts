@@ -38,19 +38,16 @@ export class LogingService {
 
     for (let i = 0; i < this.myUsers.length; i++) {
       if (this.myUsers[i].email === userToSearch.email && this.myUsers[i].password === userToSearch.password) {
-        console.log(this.myUsers[i]);
 
         return this.myUsers[i].name;
 
       }
-      console.log(this.myUsers[i]);
     }
     return "false";
 
 
   }
   signUp(userToAdd: { email: string, password: string, name: string }) {
-    console.log(userToAdd);
 
     this.myUsers.push(userToAdd);
 
@@ -58,11 +55,9 @@ export class LogingService {
  
 
   checkEmail(email: string) {
-    console.log(this.myUsers);
 
     for (let i = 0; i < this.myUsers.length; i++) {
       if (this.myUsers[i].email === email) {
-        console.log(this.myUsers[i]);
         return true;
 
       }

@@ -1,4 +1,3 @@
-<!-- login.component.html -->
 <button class="btn  me-2 " type="button" (click)="translate.use('en')">EN</button>
 <button class="btn  me-2 " type="button" (click)="translate.use('ar')">AR</button>
 
@@ -26,7 +25,6 @@
 
     </div>
     <small style="color: red;" *ngIf="!email.valid &&email.touched" >{{"emailRequired"|translate}}</small>
-    <!-- <small style="color: red;" *ngIf="!uniqueEmail " >{{"emailExists"|translate}}</small> -->
 
     <br>
     <div class="form-group">
