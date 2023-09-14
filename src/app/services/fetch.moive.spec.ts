@@ -30,7 +30,7 @@ describe('FetchMoiveService', () => {
     const mockMovieData = { id: 123, title: 'Movie Title' };
 
     let responseData: any = null;
-    service.fetchPosts(moiveID).subscribe((data) => {
+    service.fetchPosts(moiveID)?.subscribe((data) => {
       responseData = data;
     });
 

@@ -3,14 +3,19 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NavBarComponent } from '../../shared/nav-bar/nav-bar.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core'; 
-
 import { CatalogDetailsComponent } from './catalog-details.component';
-
 import { CUSTOM_ELEMENTS_SCHEMA, Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
+import { of } from 'rxjs';
 
 const translateServiceStub = {
   instant: (key: string) => key, 
+  get: (key: string) => {
+      return of(key);
+  },
+  use: (key: string) => {
+      key
+    }
 };
 
 @Injectable()
@@ -44,7 +49,8 @@ describe('CatalogDetailsComponent', () => {
           useClass: MockCanActivateGuard,
         },
         {
-          provide: TranslateService, useValue: translateServiceStub ,
+          provide: TranslateService,
+           useValue: translateServiceStub ,
 
         }
       ],

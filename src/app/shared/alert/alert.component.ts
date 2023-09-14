@@ -12,12 +12,13 @@ message: string ="";
 @Output() close= new EventEmitter<void>();
 constructor(public translate:TranslateService){}
 ngOnInit() {
-  this.translate.get(this.key).subscribe((translation: string) => {
+  this.translate.get(this.key)?.subscribe((translation: string) => {
     this.message = translation;
   });
 }
 closeError(){
 this.close.emit();
 }
+
 }
 

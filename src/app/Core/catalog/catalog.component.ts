@@ -32,7 +32,7 @@ export class CatalogComponent implements OnInit {
   getingAllMoives() {
     this.fetching = true;
     this.userData = JSON.parse(localStorage.getItem("userData"));
-    this.fetchMoives.fetchPosts().subscribe(moive => {
+    this.fetchMoives.fetchPosts()?.subscribe(moive => {
       this.moives = moive;
 
       this.fetching = false;

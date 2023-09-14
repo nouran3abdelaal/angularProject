@@ -6,6 +6,7 @@ import { CatalogComponent } from './catalog.component';
 import { CUSTOM_ELEMENTS_SCHEMA, Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { FetchMoivesService } from 'src/app/services/fetch-moives.service';
 
 const translateServiceStub = {
   instant: (key: string) => key, 
@@ -21,6 +22,7 @@ export class MockCanActivateGuard implements CanActivate {
 describe('CatalogComponent', () => {
   let component: CatalogComponent;
   let fixture: ComponentFixture<CatalogComponent>;
+    let service: FetchMoivesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -48,6 +50,8 @@ describe('CatalogComponent', () => {
 
     fixture = TestBed.createComponent(CatalogComponent);
     component = fixture.componentInstance;
+            service = TestBed.inject(FetchMoivesService);
+
     fixture.detectChanges();
   });
 
@@ -55,4 +59,9 @@ describe('CatalogComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should call the fetchPosts method of the fetchMoives service', () => {
+    spyOn(service,"fetchPosts");
+    component.getingAllMoives()
+    expect(service.fetchPosts).toHaveBeenCalled();
+});
 });
