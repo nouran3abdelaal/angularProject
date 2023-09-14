@@ -9,18 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
    title = "my-first-app";
-   currentLang: string;
   constructor(private LogingService: LogingService, public translate: TranslateService){
-    this.currentLang = localStorage.getItem('currentLang')||'en';
   }
-  changeCurrentLang(lang:string){
-    this.translate.use(lang);
-    localStorage.setItem("currentLang",lang);
-  }
+ 
 
-  ngOnInit(): void {
-  //  this.LogingService.autoLoading();
-  }
+  ngOnInit(): void {  }
 
  
 }

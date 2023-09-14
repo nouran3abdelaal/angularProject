@@ -24,30 +24,39 @@ export class SignUpComponent implements OnInit {
   signUpFlag = false;
   uniqueEmail = true;
 
-  constructor(private router: Router, private LogingService: LogingService, public translate:TranslateService) { }
-  ngOnInit(): void {
+  currentLang: string;
+
+  constructor(private router: Router, private LogingService: LogingService, public translate: TranslateService) {
+    this.currentLang = localStorage.getItem('currentLang') || 'en';
+    this.translate.use(this.currentLang);
+
+  } ngOnInit(): void {
+
   }
 
-
+  changeCurrentLang(lang: string) {
+    this.translate.use(lang);
+    localStorage.setItem("currentLang", lang);
+  }
   onSubmit() {
-    this.uniqueEmail=true;
+    this.uniqueEmail = true;
 
-      this.userData.email = this.siginForm.value.email;
-      this.userData.password = this.siginForm.value.password;
-      this.userData.name = this.siginForm.value.myName;
-      if(this.LogingService.checkEmail(this.userData.email)){
-        this.uniqueEmail=false;
-        this.emailInput.reset();
-        this.error = true;
+    this.userData.email = this.siginForm.value.email;
+    this.userData.password = this.siginForm.value.password;
+    this.userData.name = this.siginForm.value.myName;
+    if (this.LogingService.checkEmail(this.userData.email)) {
+      this.uniqueEmail = false;
+      this.emailInput.reset();
+      this.error = true;
 
-        return;
-      }
-      this.LogingService.signUp(this.userData);
-      return this.router.navigate(['/']);
-      
-    
+      return;
+    }
+    this.LogingService.signUp(this.userData);
+    return this.router.navigate(['/']);
+
+
   }
-  
+
   RemovePopUpScreen() {
     this.error = false;
   }

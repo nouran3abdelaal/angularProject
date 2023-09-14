@@ -1,5 +1,3 @@
-import { ComponentFixture, inject } from "@angular/core/testing";
-import { Router } from '@angular/router';
 import { ShortenTextPipe } from "./shorten-text.pipe";
 
 

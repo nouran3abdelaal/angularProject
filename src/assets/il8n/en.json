@@ -1,16 +1,17 @@
 {
     "NAME":"Name",
     "EMAIL":"Email",
-    "PHName": "Enter Your Name",
-    "PHEmail": "Enter Your Email",
-    "emailRequired":"Email is required. Please Enter it!",
-    "emailExists": "Email already exists",
-    "Password":"Password",
-    "PHPass": "Enter Your Password",
-    "PasswordRequired": "Password is required. Please Enter it!",
-    "Signup":"Signup",
-    "Login":"Log in",
-    "nameRequired":"Name is required. Please Enter it!"
+    "PHNAME": "Enter Your Name",
+    "PHEMAIL": "Enter Your Email",
+    "EMAILREQUIRED":"Email is required. Please Enter it!",
+    "EMAILEXISTS": "Email already exists",
+    "PASS":"Password",
+    "PHPASS": "Enter Your Password",
+    "PASSREQUIRED": "Password is required. Please Enter it!",
+    "SIGNUP":"Sign Up",
+    "LOGIN":"Log In",
+    "NAMEREQUIRED":"Name is required. Please Enter it!",
+    "INCORRECTEMAIL-PASS":"Incorrect email address or password"
 
 
 

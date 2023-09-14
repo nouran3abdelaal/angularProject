@@ -40,6 +40,6 @@ export class CatalogComponent implements OnInit {
   }
   
   seeMoreMethod(moive: any) {
-    this.router.navigate(['/CatalogDetails', moive.id]);
+    this.router.navigate(['/catalogDetails', moive.id]);
   }
 }

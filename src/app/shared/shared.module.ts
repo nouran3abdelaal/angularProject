@@ -4,7 +4,9 @@ import { AlertComponent } from './alert/alert.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShortenTextPipe } from './pipes/shorten-text.pipe';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from '../Core/page-not-found/page-not-found.component';
+import { SharedRoutingModule } from './shared-routing.module';
 
 
 
@@ -18,6 +20,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    SharedRoutingModule
     
     
   ],exports:[

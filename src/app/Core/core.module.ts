@@ -19,9 +19,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     CommonModule,
-    SharedModule,
     RouterModule,
     CoreRoutingModule,
+    SharedModule,
     HttpClientModule,
 
   ],

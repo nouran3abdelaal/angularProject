@@ -1,8 +1,7 @@
 import { LogingService } from '../../services/loging.service';
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -22,12 +21,21 @@ export class LoginComponent implements OnInit {
   error = false;
   signUpFlag = false;
   uniqueEmail = true;
+  currentLang: string;
 
-  constructor(private router: Router, private LogingService: LogingService, public translate: TranslateService) { }
+  constructor(private router: Router, private LogingService: LogingService, public translate: TranslateService) {
+    this.currentLang = localStorage.getItem('currentLang')||'en';
+    this.translate.use(this.currentLang);
+
+
+   }
   ngOnInit(): void {
   }
 
-
+  changeCurrentLang(lang:string){
+    this.translate.use(lang);
+    localStorage.setItem("currentLang",lang);
+  }
   onSubmit() {
     this.uniqueEmail = true;
 
@@ -39,7 +47,7 @@ export class LoginComponent implements OnInit {
     if (userName != "false") {
       this.userData.name = userName;
       localStorage.setItem("userData", JSON.stringify(this.userData));
-      this.router.navigate(['/Catalog']);
+      this.router.navigate(['/catalog']);
     }
     else {
       this.error = true;

@@ -1,42 +1,53 @@
-<button class="btn  me-2 " type="button" (click)="translate.use('en')">EN</button>
-<button class="btn  me-2 " type="button" (click)="translate.use('ar')">AR</button>
+<div class="authentication-component">
 
-<app-alert [message]="'Incorrect email address or password'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
+  <div >
+
+<button  mat-flat-button  type="button" (click)="changeCurrentLang('en')">EN</button>
+<button mat-flat-button  type="button" (click)="changeCurrentLang('ar')">AR</button>
+
+</div>
+<header class="page-header">
+  <h1 >Cinematrix</h1>
+</header>
+
+<app-alert [key]="'INCORRECTEMAIL-PASS'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
 <div class="container" [ngClass]="{'rtl-layout': translate.currentLang === 'ar', 'ltr-layout': translate.currentLang !== 'ar'}">
+
   <form class=" form-inline card" (ngSubmit)="onSubmit()" #form="ngForm">
     <br>
-   
+    <h1>{{'LOGIN'|translate}}</h1>
+
 
     <br>
     <div class="form-group ">  
       <label  class="form-label styled-label" for="email" >{{"EMAIL"|translate}} </label>
 
-      <input class=" form-control form-control-lg " type="email" id="email" name="email" placeholder="{{'PHEmail'|translate}}"
+      <input class=" form-control form-control-lg " type="email" id="email" name="email" placeholder="{{'PHEMAIL'|translate}}"
         ngModel email required #email="ngModel">
 
 
     </div>
-    <small style="color: red;" *ngIf="!email.valid &&email.touched" >{{"emailRequired"|translate}}</small>
-    <small style="color: red;" *ngIf="!uniqueEmail && signUpFlag" >{{"emailExists"|translate}}</small>
+    <small style="color: red;" *ngIf="!email.valid &&email.touched" >{{"EMAILREQUIRED"|translate}}</small>
+    <small style="color: red;" *ngIf="!uniqueEmail && signUpFlag" >{{"EMAILEXISTS"|translate}}</small>
 
     <br>
     <div class="form-group">
-      <label  class="form-label  styled-label" for="password" >{{"Password"|translate}}</label>
+      <label  class="form-label  styled-label" for="password" >{{"PASS"|translate}}</label>
 
-      <input class="form-control form-control-lg " type="password" id="password" placeholder="{{'PHPass'|translate}}" name="password"
+      <input class="form-control form-control-lg " type="password" id="password" placeholder="{{'PHPASS'|translate}}" name="password"
         ngModel required #pass="ngModel" >
 
 
     </div>
-    <small style="color: red;" *ngIf="!pass.valid&&pass.touched" >{{'PasswordRequired'|translate}}</small>
+    <small style="color: red;" *ngIf="!pass.valid&&pass.touched" >{{'PASSREQUIRED'|translate}}</small>
 
     <br>
     <div class="form-group">
 
       <button [disabled]="!form.valid" class="btn btn-primary btn-lg" type="submit" >
-       {{'Login'|translate}}</button>
+       {{'LOGIN'|translate}}</button>
       <a type="button" (click)="signUpActivate()" class="link-primary signUpLink" >
-        {{'Signup'|translate}}</a>
+        {{'SIGNUP'|translate}}</a>
     </div>
     <br>
   </form>

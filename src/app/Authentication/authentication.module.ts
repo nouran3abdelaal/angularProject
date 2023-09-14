@@ -6,6 +6,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from '../shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -16,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     SharedModule,
+    MatButtonModule,
     FormsModule,
     TranslateModule.forRoot({
       defaultLanguage:'en',

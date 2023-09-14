@@ -1,7 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'

@@ -1,4 +1,4 @@
-import { ComponentFixture, inject } from "@angular/core/testing";
+import { inject } from "@angular/core/testing";
 import { LogingService } from "./loging.service";
 
 

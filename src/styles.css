@@ -1,5 +1,154 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "~bootstrap/dist/css/bootstrap.min.css"; */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* The style of the card having the login details */
+.authentication-component .container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.authentication-component .form-group {
+
+    display: flex;
+
+}
+
+.authentication-component .card {
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 50vw;
+}
+
+.authentication-component .btn {
+    width: fit-content;
+    font-weight: bold;
+
+}
+
+/* The style of the label */
+.authentication-component .styled-label {
+
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+}
+
+.authentication-component .ltr-layout .styled-label {
+    margin-right: 5%;
+
+
+}
+
+.authentication-component .rtl-layout .styled-label {
+    margin-left: 5%;
+
+
+}
+
+.authentication-component .rtl-layout .form-group {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.authentication-component .form-inline {
+    border-radius: 8px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+    padding: inherit;
+}
+
+.authentication-component input.ng-invalid.ng-touched {
+    border: 1px solid rgb(7, 105, 218);
+}
+
+.authentication-component .form-control {
+    display: flex;
+    align-items: center;
+    padding-top: 1%;
+
+}
+
+.authentication-component .form-control:placeholder-shown {
+    display: flex;
+    align-items: center;
+
+}
+
+.authentication-component .rtl-layout .signUpLink {
+    position: absolute;
+    left: 20px;
+    bottom: 30px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.authentication-component .mdc-button:hover{
+    cursor: grabbing;
+}
+.authentication-component.webTitle{
+    display: flex;
+    align-items: center;
+
+}
+.authentication-component{
+    .page-header {
+       
+        color: #3498db;
+        text-align: center;
+      }
+      
+      .page-header h1 {
+        font-size: xx-large;
+        font-weight: bolder;
+      }
+      
+}
+
+.authentication-component .rtl-layout input {
+
+    text-align: right;
+}
+
+.authentication-component .ltr-layout .signUpLink {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    font-size: large;
+    font-weight: bold;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+    .authentication-component .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .authentication-component .card {
+        width: max-content;
+    }
+
+    .authentication-component .signUpLink {
+        position: initial;
+        margin-top: 8px;
+    }
+
+}
