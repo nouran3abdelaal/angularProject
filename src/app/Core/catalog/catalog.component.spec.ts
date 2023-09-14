@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FetchMoivesService } from 'src/app/services/fetch-moives.service';
 
 const translateServiceStub = {
-  instant: (key: string) => key, 
+  instant: (key: string) => key,
 };
 
 @Injectable()
@@ -22,7 +22,7 @@ export class MockCanActivateGuard implements CanActivate {
 describe('CatalogComponent', () => {
   let component: CatalogComponent;
   let fixture: ComponentFixture<CatalogComponent>;
-    let service: FetchMoivesService;
+  let service: FetchMoivesService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -39,7 +39,8 @@ describe('CatalogComponent', () => {
           provide: Router,
           useValue: {},
         },
-        {          provide: TranslateService, useValue: translateServiceStub ,
+        {
+          provide: TranslateService, useValue: translateServiceStub,
         },
         {
           provide: MockCanActivateGuard,
@@ -50,7 +51,7 @@ describe('CatalogComponent', () => {
 
     fixture = TestBed.createComponent(CatalogComponent);
     component = fixture.componentInstance;
-            service = TestBed.inject(FetchMoivesService);
+    service = TestBed.inject(FetchMoivesService);
 
     fixture.detectChanges();
   });
@@ -60,8 +61,8 @@ describe('CatalogComponent', () => {
   });
 
   it('should call the fetchPosts method of the fetchMoives service', () => {
-    spyOn(service,"fetchPosts");
+    spyOn(service, "fetchPosts");
     component.getingAllMoives()
     expect(service.fetchPosts).toHaveBeenCalled();
-});
+  });
 });
