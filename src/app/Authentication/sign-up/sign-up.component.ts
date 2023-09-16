@@ -57,7 +57,7 @@ export class SignUpComponent implements OnInit {
 
   }
 
-  RemovePopUpScreen() {
+  removePopUpScreen() {
     this.error = false;
   }
   loginActivate() {

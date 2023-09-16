@@ -5,7 +5,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ShortenTextPipe } from './pipes/shorten-text.pipe';
 import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from '../Core/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SharedRoutingModule } from './shared-routing.module';
 
 

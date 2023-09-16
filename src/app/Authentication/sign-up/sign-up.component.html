@@ -10,7 +10,7 @@
     <h1>Cinematrix</h1>
   </header>
 
-  <app-alert [key]="'EMAILEXISTS'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
+  <app-alert [key]="'EMAILEXISTS'" *ngIf="error" (close)="removePopUpScreen()"></app-alert>
   <div class="container" [ngClass]="{'rtl-layout': currentLang === 'ar', 'ltr-layout': currentLang !== 'ar'}">
 
     <form class=" form-inline card" (ngSubmit)="onSubmit()" #form="ngForm">

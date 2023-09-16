@@ -10,7 +10,7 @@
   <h1 >Cinematrix</h1>
 </header>
 
-<app-alert [key]="'INCORRECTEMAIL-PASS'" *ngIf="error" (close)="RemovePopUpScreen()"></app-alert>
+<app-alert [key]="'INCORRECTEMAIL-PASS'" *ngIf="error" (close)="removePopUpScreen()"></app-alert>
 <div class="container" [ngClass]="{'rtl-layout': translate.currentLang === 'ar', 'ltr-layout': translate.currentLang !== 'ar'}">
 
   <form class=" form-inline card" (ngSubmit)="onSubmit()" #form="ngForm">

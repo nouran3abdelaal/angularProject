@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
 
 
   }
-  RemovePopUpScreen() {
+  removePopUpScreen() {
     this.error = false;
     this.siginForm.reset();
 
