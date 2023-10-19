@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class FetchMoiveService implements OnInit {
 
   moiveID = '';
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private CookieService:CookieService) { }
 
   ngOnInit(): void {
 
@@ -17,6 +19,11 @@ export class FetchMoiveService implements OnInit {
 
 
   fetchPosts(moiveID) {
-    return this.http.get(`https://api.themoviedb.org/3/movie/${moiveID}?api_key=15589cd5a2d1224bff485d7f200ef63d`);
+    const jwtToken = this.CookieService.get('jwtToken');
+
+       const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
+       console.log(environment.backendURLID+moiveID);
+
+    return this.http.get(environment.backendURLID+moiveID,{headers});
   }
 }

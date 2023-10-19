@@ -4,6 +4,7 @@
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
+        
         <img src="https://image.tmdb.org/t/p/original{{moiveTemp?.poster_path}}" class="img-fluid rounded-start"
           alt="...">
       </div>
@@ -12,7 +13,7 @@
           <h5 class="card-title">{{moiveTemp?.original_title}}</h5>
           <p class="card-text"><strong>Overview: </strong> {{moiveTemp?.overview}}</p>
           <hr>
-          <p class="card-text"> <strong>Release Date:</strong> {{moiveTemp?.release_date}}</p>
+          <p class="card-text"> <strong>Release Date:</strong> {{moiveTemp?.releaseDate }}</p>
           <hr>
 
           <p class="card-text"><strong>Language: </strong>{{moiveTemp?.original_language |uppercase}}</p>

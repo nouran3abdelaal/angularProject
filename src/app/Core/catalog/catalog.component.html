@@ -4,11 +4,11 @@
 <app-loading-spinner *ngIf="fetching" >Loading...</app-loading-spinner>
 
 <div class="card-desk container">
-<div  *ngFor="let moive of moives?.results">
+<div  *ngFor="let moive of moives">
     <div class="card  "    >
         <img class="card-img-top" src=  "https://image.tmdb.org/t/p/original{{moive?.poster_path}}" alt="Card image cap">
         <div class="card-body" >
-          <h5 class="card-title"> {{moive?.title}}</h5>
+          <h5 class="card-title"> {{moive?.original_title}}</h5>
           <p class="card-text">{{moive?.overview |shortenText}}</p>
           <a  class="btn btn-primary" (click)="seeMoreMethod(moive)">More Details</a>
         </div>

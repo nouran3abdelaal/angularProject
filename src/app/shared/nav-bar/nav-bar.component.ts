@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class NavBarComponent implements OnInit{
     name: ''
   };
   moive =null
-constructor(private router: Router, private route: ActivatedRoute,public translate:TranslateService) {}
+constructor(private router: Router, private route: ActivatedRoute,public translate:TranslateService,private cookieService: CookieService) {}
   ngOnInit(): void {
     this.intialSetting();
   }
@@ -29,6 +30,7 @@ constructor(private router: Router, private route: ActivatedRoute,public transla
   logout(){
     localStorage.removeItem("userData");
     localStorage.removeItem("moiveDetails");
+    this.cookieService.delete('jwtToken');
     this.router.navigate(['/']);
 
 

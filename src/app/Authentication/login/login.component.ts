@@ -3,6 +3,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-login',
@@ -23,7 +25,8 @@ export class LoginComponent implements OnInit {
   uniqueEmail = true;
   currentLang: string;
 
-  constructor(private router: Router, private LogingService: LogingService, public translate: TranslateService) {
+  constructor(private router: Router, private LogingService: LogingService,
+     public translate: TranslateService,private cookieService: CookieService) {
     this.currentLang = localStorage.getItem('currentLang')||'en';
     this.translate.use(this.currentLang);
 
@@ -42,17 +45,42 @@ export class LoginComponent implements OnInit {
     
     this.userData.email = this.siginForm.value.email;
     this.userData.password = this.siginForm.value.password;
-    const userName = this.LogingService.login(this.userData);
+    // const userName = 
+    this.LogingService.login(this.userData).subscribe(
+      (response) => {
+        if (response.token) {
+          console.log('User logged:', response);
+          this.userData.name = response.name;
 
-    if (userName != "false") {
-      this.userData.name = userName;
-      localStorage.setItem("userData", JSON.stringify(this.userData));
+          this.cookieService.set('jwtToken', response.token);
+          localStorage.setItem("userData", JSON.stringify(this.userData));
       this.router.navigate(['/catalog']);
-    }
-    else {
-      this.error = true;
+    // }
+          return response.name
+        }
+       
+      },
+      (error) => {
+        console.error('Registration failed:', error);
+        this.error = true;
 
-    }
+        return "false"
+      }
+      
+      
+    );
+
+    // if (userName != null ) {
+    //   this.userData.name = userName;
+    //   console.log('User logged:');
+
+    //   localStorage.setItem("userData", JSON.stringify(this.userData));
+    //   this.router.navigate(['/catalog']);
+    // // }
+    // else {
+    //   this.error = true;
+
+    // }
    
 
 

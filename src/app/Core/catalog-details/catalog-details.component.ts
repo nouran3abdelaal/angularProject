@@ -29,6 +29,8 @@ export class CatalogDetailsComponent implements OnInit {
     )
     this.moiveTemp = this.fectchMoive.fetchPosts(this.moiveID)?.subscribe(moive => {
       this.moiveTemp = moive;
+      console.log(this.moiveTemp);
+      
      
     })
   }

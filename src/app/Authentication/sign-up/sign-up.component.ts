@@ -44,7 +44,23 @@ export class SignUpComponent implements OnInit {
     this.userData.email = this.siginForm.value.email;
     this.userData.password = this.siginForm.value.password;
     this.userData.name = this.siginForm.value.myName;
-    if (this.LogingService.checkEmail(this.userData.email)) {
+    if (this.LogingService.checkEmail(this.userData.email)
+    .subscribe(
+      (response) => {
+       
+        if(response.name){
+          return true;
+        }
+        return false;
+      },
+      (error) => {
+        console.error('Registration failed:', error);
+        return false;
+      }
+    )
+    
+    
+    ) {
       this.uniqueEmail = false;
       this.emailInput.reset();
       this.error = true;
