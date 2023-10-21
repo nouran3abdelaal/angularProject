@@ -69,7 +69,7 @@ describe('CatalogDetailsComponent', () => {
     component.moiveTemp = {
       original_title: 'Test Movie',
       overview: 'This is a test movie',
-      release_date: '2023-09-12T00:00:00.000+00:00',
+      releaseDate: '2023-09-12',
       original_language: 'English',
       vote_average: 7.5,
       vote_count: 100,
@@ -82,7 +82,7 @@ describe('CatalogDetailsComponent', () => {
 
     expect(compiled.querySelector('.card-title').textContent).toContain('Test Movie');
     expect(compiled.querySelector('.card-text:nth-child(2)').textContent).toContain('Overview:  This is a test movie');
-    expect(compiled.querySelector('.card-text:nth-child(4)').textContent).toContain('Release Date: 2023-09-12T00:00:00.000+00:00');
+    expect(compiled.querySelector('.card-text:nth-child(4)').textContent).toContain('Release Date: 2023-09-12');
     expect(compiled.querySelector('.card-text:nth-child(6)').textContent).toContain('Language: ENGLISH');
     expect(compiled.querySelector('.card-text:nth-child(8)').textContent).toContain('Vote Avergare: 7.5');
     expect(compiled.querySelector('.card-text:nth-child(10)').textContent).toContain('Vote Count: 100');

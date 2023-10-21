@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardService } from '../Authentication/grads/auth.guard.service';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CatalogDetailsComponent } from './catalog-details/catalog-details.component';
+import { DatePipe } from '@angular/common';
 
 
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(routes),DatePipe],
   exports: [RouterModule]
 
 })

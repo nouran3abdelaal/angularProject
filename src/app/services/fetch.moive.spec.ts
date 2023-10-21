@@ -1,8 +1,9 @@
-import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ActivatedRoute } from '@angular/router';
 import { FetchMoiveService } from './fetch-moive.service';
-
+import { environment } from 'src/environments/environment';
+  
 describe('FetchMoiveService', () => {
   let service: FetchMoiveService;
   let httpTestingController: HttpTestingController;
@@ -35,7 +36,7 @@ describe('FetchMoiveService', () => {
     });
 
     const req = httpTestingController.expectOne(
-      `https://api.themoviedb.org/3/movie/${moiveID}?api_key=15589cd5a2d1224bff485d7f200ef63d`
+      environment.backendURLID+moiveID
     );
     expect(req.request.method).toBe('GET');
 

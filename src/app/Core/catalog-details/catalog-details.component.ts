@@ -4,6 +4,7 @@ import { FetchMoiveService } from '../../services/fetch-moive.service';
 import { ActivatedRoute } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-catalog-details',
   templateUrl: './catalog-details.component.html',
