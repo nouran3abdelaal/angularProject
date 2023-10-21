@@ -11,7 +11,7 @@
   </header>
 
   <app-alert [key]="'EMAILEXISTS'" *ngIf="error" (close)="removePopUpScreen()"></app-alert>
-  <div class="container" [ngClass]="{'rtl-layout': currentLang === 'ar', 'ltr-layout': currentLang !== 'ar'}">
+  <div class="container" [ngClass]="{'rtl-layout': translate.currentLang === 'ar', 'ltr-layout': translate.currentLang !== 'ar'}">
 
     <form class=" form-inline card" (ngSubmit)="onSubmit()" #form="ngForm">
       <br>

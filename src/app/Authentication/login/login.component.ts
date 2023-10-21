@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
     
     this.userData.email = this.siginForm.value.email;
     this.userData.password = this.siginForm.value.password;
-    // const userName = 
     this.LogingService.login(this.userData).subscribe(
       (response) => {
         if (response.token) {
@@ -69,20 +68,6 @@ export class LoginComponent implements OnInit {
       
       
     );
-
-    // if (userName != null ) {
-    //   this.userData.name = userName;
-    //   console.log('User logged:');
-
-    //   localStorage.setItem("userData", JSON.stringify(this.userData));
-    //   this.router.navigate(['/catalog']);
-    // // }
-    // else {
-    //   this.error = true;
-
-    // }
-   
-
 
   }
   removePopUpScreen() {

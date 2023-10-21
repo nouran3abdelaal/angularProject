@@ -15,9 +15,7 @@ export class FetchMoivesService {
   fetchPosts(){
     const jwtToken = this.cookieService.get('jwtToken');
 
-   
-    // Step 2: Set the token as an authorization header
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
+       const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
 
     
    return this.http.get(environment.backendURL,{headers});

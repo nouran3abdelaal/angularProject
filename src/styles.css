@@ -127,6 +127,10 @@ body {
 
     text-align: right;
 }
+.authentication-component .ltr-layout input {
+
+    text-align: left;
+}
 
 .authentication-component .ltr-layout .signUpLink {
     position: absolute;
@@ -140,7 +144,7 @@ body {
 @media (max-width: 768px) {
     .authentication-component .form-group {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
