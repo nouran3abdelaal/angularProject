@@ -62,7 +62,9 @@ export class LogingService {
  
 
   checkEmail(email: string) {
-   return this.http.get<user>(`http://localhost:8080/api/auth/user/${email}`,{})
+    console.log(`http://localhost:8080/api/auth/user/${email}`);
+    
+    return ( this.http.get<user>(`http://localhost:8080/api/auth/user/${email}`))
     
 
   }
