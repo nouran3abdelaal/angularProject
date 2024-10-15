@@ -11,6 +11,16 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.container .btn {
+    width: fit-content;
+    font-weight: bold;
+
+}
+
+.container .btn:hover {
+    cursor: pointer;
+}
+
 /* The style of the card having the login details */
 .authentication-component .container {
 
@@ -100,33 +110,36 @@ body {
     font-weight: bold;
 }
 
-.authentication-component .mdc-button:hover{
+.authentication-component .mdc-button:hover {
     cursor: grabbing;
 }
-.authentication-component.webTitle{
+
+.authentication-component.webTitle {
     display: flex;
     align-items: center;
 
 }
-.authentication-component{
+
+.authentication-component {
     .page-header {
-       
+
         color: #3498db;
         text-align: center;
-      }
-      
-      .page-header h1 {
+    }
+
+    .page-header h1 {
         font-size: xx-large;
         font-weight: bolder;
         margin-top: 5%;
-      }
-      
+    }
+
 }
 
 .authentication-component .rtl-layout input {
 
     text-align: right;
 }
+
 .authentication-component .ltr-layout input {
 
     text-align: left;

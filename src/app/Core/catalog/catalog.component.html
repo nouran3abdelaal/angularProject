@@ -4,7 +4,7 @@
 <app-loading-spinner *ngIf="fetching" >Loading...</app-loading-spinner>
 
 <div class="card-desk container">
-<div  *ngFor="let moive of moives">
+<div  *ngFor="let moive of moives.results">
     <div class="card  "    >
         <img class="card-img-top" src=  "https://image.tmdb.org/t/p/original{{moive?.poster_path}}" alt="Card image cap">
         <div class="card-body" >

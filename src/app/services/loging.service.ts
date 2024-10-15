@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthenticationResponse } from '../Models/AuthenticationResponse';
 import { user } from '../Models/user';
+import { BackendSource } from './backendSource.servcie';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -33,20 +35,23 @@ export class LogingService {
     ];
 
 
-    constructor(private http: HttpClient,private cookieService: CookieService) { }
+  constructor(private http: HttpClient, private cookieService: CookieService, private backendSource: BackendSource) { }
 
 
-    login(userToSearch: { email: string, password: string }) {
-      return this.http.post<AuthenticationResponse>(`http://localhost:8080/api/auth/authenticate`, userToSearch);
-     
-    }
+  login(userToSearch: { email: string, password: string }) {
+    return this.http.post<AuthenticationResponse>(`http://localhost:8080/api/auth/authenticate`, userToSearch);
+
+  }
   signUp(userToAdd: { email: string, password: string, name: string }) {
     const requestBody = {
       email: userToAdd.email,
       password: userToAdd.password,
       name: userToAdd.name
     };
-  
+    if (this.backendSource.backendSource === 'local') {
+      return this.signUplocal(userToAdd)
+    }
+
     this.http.post<AuthenticationResponse>('http://localhost:8080/api/auth/register', requestBody)
       .subscribe(
         (response) => {
@@ -59,16 +64,45 @@ export class LogingService {
         }
       );
   }
- 
+
 
   checkEmail(email: string) {
-    console.log(`http://localhost:8080/api/auth/user/${email}`);
-    
-    return ( this.http.get<user>(`http://localhost:8080/api/auth/user/${email}`))
-    
+    return (this.http.get<user>(`http://localhost:8080/api/auth/user/${email}`))
+  }
+
+  loginlocal(userToSearch: { email: string, password: string }) {
+    for (let i = 0; i < this.myUsers.length; i++) {
+      if (this.myUsers[i].email === userToSearch.email && this.myUsers[i].password === userToSearch.password) {
+
+        return this.myUsers[i].name;
+
+      }
+    }
+    return "false";
+
+
+  }
+  signUplocal(userToAdd: { email: string, password: string, name: string }) {
+
+    this.myUsers.push(userToAdd);
+
+  }
+
+
+  checkEmaillocal(email: string) {
+
+    for (let i = 0; i < this.myUsers.length; i++) {
+      if (this.myUsers[i].email === email) {
+        return true;
+
+      }
+    }
+    return false;
 
   }
 }
+
+
 
 
 
