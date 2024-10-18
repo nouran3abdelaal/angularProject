@@ -7,6 +7,8 @@ import { ShortenTextPipe } from './pipes/shorten-text.pipe';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SharedRoutingModule } from './shared-routing.module';
+import { Test } from '../services/test.servcie';
+import { Test2 } from '../services/test2.servcie';
 
 
 
@@ -20,10 +22,12 @@ import { SharedRoutingModule } from './shared-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    SharedRoutingModule
-    
-    
-  ],exports:[
+    SharedRoutingModule 
+  ],
+  providers:[
+    Test, Test2
+  ],
+    exports:[
     AlertComponent,
     LoadingSpinnerComponent,
     NavBarComponent,
