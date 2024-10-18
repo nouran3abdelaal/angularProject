@@ -14,14 +14,18 @@ export class FetchMoivesService {
   }
 
   fetchPosts() {
+    let url = '';
+
     if (this.backendSource.backendSource === 'local') {
-      return this.http.get(environment.moiveURL);
+      url = environment.moiveURL + environment.api_key;
+      return this.http.get(url);
     }
     const jwtToken = this.cookieService.get('jwtToken');
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
+    url = environment.backendURL;
 
 
-    return this.http.get(environment.backendURL, { headers });
+    return this.http.get(url, { headers });
   }
 }

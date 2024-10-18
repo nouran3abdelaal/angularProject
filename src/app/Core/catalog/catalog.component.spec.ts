@@ -7,6 +7,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { FetchMoivesService } from 'src/app/services/fetch-moives.service';
+import { BackendSource } from 'src/app/services/backendSource.servcie';
 
 const translateServiceStub = {
   instant: (key: string) => key,
@@ -23,6 +24,7 @@ describe('CatalogComponent', () => {
   let component: CatalogComponent;
   let fixture: ComponentFixture<CatalogComponent>;
   let service: FetchMoivesService;
+  let backendSource: BackendSource
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -45,13 +47,14 @@ describe('CatalogComponent', () => {
         {
           provide: MockCanActivateGuard,
           useClass: MockCanActivateGuard,
-        },
-      ],
+        }  
+       ],
     });
 
     fixture = TestBed.createComponent(CatalogComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(FetchMoivesService);
+    backendSource = TestBed.inject(BackendSource)
 
     fixture.detectChanges();
   });

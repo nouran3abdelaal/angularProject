@@ -15,7 +15,7 @@
     "lib": [
       "ES2022",
       "dom"
-    ],"types": ["jasmine"],
+    ],"types": [],
     "resolveJsonModule": true
   },
   "angularCompilerOptions": {

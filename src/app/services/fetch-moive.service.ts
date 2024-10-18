@@ -14,20 +14,21 @@ export class FetchMoiveService implements OnInit {
   moiveID = '';
   constructor(private http: HttpClient, private route: ActivatedRoute, private CookieService: CookieService, private backendSource: BackendSource) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
 
   fetchPosts(moiveID) {
-    if (this.backendSource.backendSource === 'local') {
-      return this.http.get(`https://api.themoviedb.org/3/movie/${moiveID}?api_key=15589cd5a2d1224bff485d7f200ef63d`);
-    }
-    const jwtToken = this.CookieService.get('jwtToken');
+    let url= '';
 
+    if (this.backendSource.backendSource === 'local') {
+      url = `${environment.moiveURLWithoutType}/${moiveID}${environment.api_key}`
+      return this.http.get(url);
+    }
+
+    const jwtToken = this.CookieService.get('jwtToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
     console.log(environment.backendURLID + moiveID);
-
-    return this.http.get(environment.backendURLID + moiveID, { headers });
+    url = environment.backendURLID + moiveID;
+    return this.http.get(url, { headers });
   }
 }

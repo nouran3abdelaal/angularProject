@@ -6,7 +6,8 @@
     "strictNullChecks": false,
     "types": [
       "jasmine",
-      "@angular/localize"
+      "@angular/localize",
+      "node"
     ]
   },
   "include": [

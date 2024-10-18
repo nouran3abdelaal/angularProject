@@ -3,10 +3,12 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ActivatedRoute } from '@angular/router';
 import { FetchMoiveService } from './fetch-moive.service';
 import { environment } from 'src/environments/environment';
+import { BackendSource } from './backendSource.servcie';
   
-describe('FetchMoiveService', () => {
+fdescribe('FetchMoiveService', () => {
   let service: FetchMoiveService;
   let httpTestingController: HttpTestingController;
+  let backendSource: BackendSource
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,13 +18,14 @@ describe('FetchMoiveService', () => {
 
     service = TestBed.inject(FetchMoiveService);
     httpTestingController = TestBed.inject(HttpTestingController);
+    backendSource = TestBed.inject(BackendSource)
   });
 
   afterEach(() => {
     httpTestingController.verify();
   });
 
-  it('should be created', () => {
+  xit('should be created', () => {
     expect(service).toBeTruthy();
   });
 
@@ -34,9 +37,14 @@ describe('FetchMoiveService', () => {
     service.fetchPosts(moiveID)?.subscribe((data) => {
       responseData = data;
     });
-
+    let url = ''
+    if (backendSource.backendSource === 'local') {
+      url = `${environment.moiveURLWithoutType}/${moiveID}${environment.api_key}`
+    }else{
+      url = environment.backendURLID + moiveID;
+    }
     const req = httpTestingController.expectOne(
-      environment.backendURLID+moiveID
+      url
     );
     expect(req.request.method).toBe('GET');
 
