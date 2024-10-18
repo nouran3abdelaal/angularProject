@@ -4,16 +4,21 @@ import { ActivatedRoute } from '@angular/router';
 import { FetchMoiveService } from './fetch-moive.service';
 import { environment } from 'src/environments/environment';
 import { BackendSource } from './backendSource.servcie';
-  
+import { Test } from './test.servcie';
+import { Test2 } from './test2.servcie';
+
 fdescribe('FetchMoiveService', () => {
   let service: FetchMoiveService;
   let httpTestingController: HttpTestingController;
-  let backendSource: BackendSource
+  let backendSource: BackendSource;
+  let test: Test;
+  let test2: Test2;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
+        Test, Test2
         // { provide: ActivatedRoute, useValue: {} }
       ],
     });
@@ -21,6 +26,8 @@ fdescribe('FetchMoiveService', () => {
     service = TestBed.inject(FetchMoiveService);
     httpTestingController = TestBed.inject(HttpTestingController);
     backendSource = TestBed.inject(BackendSource)
+    test2 = TestBed.inject(Test2)
+    test = TestBed.inject(Test)
   });
 
   afterEach(() => {
@@ -32,7 +39,7 @@ fdescribe('FetchMoiveService', () => {
   });
 
   it('should fetch movie data asynchronously', fakeAsync(() => {
-    const moiveID = 123; 
+    const moiveID = 123;
     const mockMovieData = { id: 123, title: 'Movie Title' };
 
     let responseData: any = null;
@@ -42,7 +49,7 @@ fdescribe('FetchMoiveService', () => {
     let url = ''
     if (backendSource.backendSource === 'local') {
       url = `${environment.moiveURLWithoutType}/${moiveID}${environment.api_key}`
-    }else{
+    } else {
       url = environment.backendURLID + moiveID;
     }
     const req = httpTestingController.expectOne(
@@ -57,5 +64,5 @@ fdescribe('FetchMoiveService', () => {
     expect(responseData).toEqual(mockMovieData);
   }));
 
-  
+
 });

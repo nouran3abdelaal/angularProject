@@ -4,6 +4,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { BackendSource } from './backendSource.servcie';
+import { Test } from './test.servcie';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class FetchMoiveService implements OnInit {
   moiveID = '';
   constructor(private http: HttpClient,
     //  private route: ActivatedRoute, 
-     private CookieService: CookieService, private backendSource: BackendSource) { }
+     private cookieService: CookieService, private backendSource: BackendSource, private test: Test) { }
 
   ngOnInit(): void {}
 
@@ -27,7 +28,7 @@ export class FetchMoiveService implements OnInit {
       return this.http.get(url);
     }
 
-    const jwtToken = this.CookieService.get('jwtToken');
+    const jwtToken = this.cookieService.get('jwtToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
     console.log(environment.backendURLID + moiveID);
     url = environment.backendURLID + moiveID;
