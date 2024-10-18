@@ -13,7 +13,9 @@ fdescribe('FetchMoiveService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [FetchMoiveService, { provide: ActivatedRoute, useValue: {} }],
+      providers: [
+        // { provide: ActivatedRoute, useValue: {} }
+      ],
     });
 
     service = TestBed.inject(FetchMoiveService);
@@ -25,7 +27,7 @@ fdescribe('FetchMoiveService', () => {
     httpTestingController.verify();
   });
 
-  xit('should be created', () => {
+  it('should be created', () => {
     expect(service).toBeTruthy();
   });
 

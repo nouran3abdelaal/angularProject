@@ -12,7 +12,9 @@ import { BackendSource } from './backendSource.servcie';
 export class FetchMoiveService implements OnInit {
 
   moiveID = '';
-  constructor(private http: HttpClient, private route: ActivatedRoute, private CookieService: CookieService, private backendSource: BackendSource) { }
+  constructor(private http: HttpClient,
+    //  private route: ActivatedRoute, 
+     private CookieService: CookieService, private backendSource: BackendSource) { }
 
   ngOnInit(): void {}
 
