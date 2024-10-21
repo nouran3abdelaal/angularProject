@@ -7,7 +7,7 @@ import { Test } from './test.servcie';
 import { Test2 } from './test2.servcie';
 import { CookieService } from 'ngx-cookie-service';
 
-describe('FetchMoiveService', () => {
+fdescribe('FetchMoiveService', () => {
   let service: FetchMoiveService;
   let httpTestingController: HttpTestingController;
   let backendSource: BackendSource;
