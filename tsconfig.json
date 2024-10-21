@@ -15,8 +15,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ],"types": [],
-    "resolveJsonModule": true
+      ],"types": ["jasmine"],
+      "resolveJsonModule": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

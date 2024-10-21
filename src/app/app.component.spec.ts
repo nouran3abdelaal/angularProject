@@ -5,12 +5,11 @@ import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 import { AlertComponent } from './shared/alert/alert.component';
-import { TranslateService } from '@ngx-translate/core';  // Correct import here
+// import { TranslateService } from '@ngx-translate/core';  // Correct import here
 import { of } from 'rxjs';
 
 const translateServiceStub = {
-  instant: (key: string) => key,  // Mock instant method
-  get: (key: string) => of(key)   // Mock get method to return an observable
+  get: (key: string) => of(key) 
 };
 
 fdescribe('AppComponent', () => {

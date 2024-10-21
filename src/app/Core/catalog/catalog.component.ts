@@ -18,18 +18,17 @@ export class CatalogComponent implements OnInit {
   fetching = false;
 
   moives: any;
-  constructor(private http: HttpClient, private fetchMoives: FetchMoivesService,
-    private router: Router) {
+  constructor( private fetchMoives: FetchMoivesService, private router: Router) {
 
   }
 
   ngOnInit(): void {
-    this.getingAllMoives();
+    this.getAllMoives();
 
 
   }
 
-  getingAllMoives() {
+  getAllMoives() {
     this.fetching = true;
     this.userData = JSON.parse(localStorage.getItem("userData"));
     this.fetchMoives.fetchPosts()?.subscribe(moive => {
