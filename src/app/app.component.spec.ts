@@ -1,9 +1,17 @@
 import { BackendSource } from './services/backendSource.servcie';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { DebugElement } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
+import { AlertComponent } from './shared/alert/alert.component';
+import { TranslateService } from '@ngx-translate/core';  // Correct import here
+import { of } from 'rxjs';
+
+const translateServiceStub = {
+  instant: (key: string) => key,  // Mock instant method
+  get: (key: string) => of(key)   // Mock get method to return an observable
+};
 
 fdescribe('AppComponent', () => {
   let app: AppComponent;
@@ -17,9 +25,14 @@ fdescribe('AppComponent', () => {
       imports: [
         RouterTestingModule
       ],
-      declarations: [AppComponent],
-      // schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-      providers: []
+      declarations: [AppComponent
+        // ,AlertComponent
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      providers: [
+        // {          provide: TranslateService, useValue: translateServiceStub,
+        // }
+      ]
     }).compileComponents();
     console.log("async after")
 
