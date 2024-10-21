@@ -7,6 +7,7 @@ import { AuthenticationModule } from './Authentication/authentication.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreRoutingModule } from './Core/core-routing.module';
 import { SharedRoutingModule } from './shared/shared-routing.module';
+import { SharedModule } from "./shared/shared.module";
 
 
 @NgModule({
@@ -20,8 +21,9 @@ import { SharedRoutingModule } from './shared/shared-routing.module';
     SharedRoutingModule,
     AuthenticationModule,
     BrowserModule,
-    BrowserAnimationsModule
-  ],
+    BrowserAnimationsModule,
+    SharedModule
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

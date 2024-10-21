@@ -1,35 +1,59 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { BackendSource } from './services/backendSource.servcie';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { DebugElement } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { By } from '@angular/platform-browser';
 
-const translateServiceStub = {
-  instant: (key: string) => key, 
-};
-describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent],
-    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-    providers: [
-      {          provide: TranslateService, useValue: translateServiceStub ,
-      }
-    ]
+fdescribe('AppComponent', () => {
+  let app: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let debugElement: DebugElement;
+  let backendSource: BackendSource
 
-  }));
+  beforeEach(async () => {
+    console.log("async berfor")
+    await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [AppComponent],
+      // schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      providers: []
+    }).compileComponents();
+    console.log("async after")
+
+  });
+  beforeEach(() => {
+    console.log("sync berfor")
+
+    fixture = TestBed.createComponent(AppComponent);
+    app = fixture.componentInstance;
+    debugElement = fixture.debugElement;
+    backendSource = TestBed.inject(BackendSource)
+    fixture.detectChanges();
+    console.log("sync after")
+
+  });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it(`should have as title 'my-first-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
     expect(app.title).toEqual('my-first-app');
   });
-
- 
+  it(`backendSource should have value equals to local by default`, () => {
+    expect(backendSource.backendSource).toEqual('local');
+  });
+  it(`backendSource should have value equals to Spring after clicking first button`, () => {
+    const button = debugElement.query(By.css('button.btn'));
+    button.nativeElement.click();
+    expect(backendSource.backendSource).toEqual('Spring');
+  });
+  it(`backendSource should have value equals to Spring after clicking second button`, () => {
+    const button = debugElement.query(By.css('button.btn:nth-of-type(2)'));
+    button.nativeElement.click();
+    expect(backendSource.backendSource).toEqual('local');
+  });
 });

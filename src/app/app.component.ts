@@ -10,13 +10,13 @@ import { BackendSource } from './services/backendSource.servcie';
 })
 export class AppComponent implements OnInit {
   title = "my-first-app";
-  constructor(private backendSource: BackendSource, public translate: TranslateService) {
+  constructor(private backendSource: BackendSource) {
   }
 
 
   ngOnInit(): void { }
   processing(be: boolean) {
-    this.backendSource.backendSource = !be ? 'local' : 'online';
+    this.backendSource.backendSource = !be ? 'local' : 'Spring';
     console.log(this.backendSource.backendSource);
     
   }

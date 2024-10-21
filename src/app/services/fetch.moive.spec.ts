@@ -1,13 +1,13 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { ActivatedRoute } from '@angular/router';
 import { FetchMoiveService } from './fetch-moive.service';
 import { environment } from 'src/environments/environment';
 import { BackendSource } from './backendSource.servcie';
 import { Test } from './test.servcie';
 import { Test2 } from './test2.servcie';
+import { CookieService } from 'ngx-cookie-service';
 
-fdescribe('FetchMoiveService', () => {
+describe('FetchMoiveService', () => {
   let service: FetchMoiveService;
   let httpTestingController: HttpTestingController;
   let backendSource: BackendSource;
@@ -18,8 +18,7 @@ fdescribe('FetchMoiveService', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        Test, Test2
-        // { provide: ActivatedRoute, useValue: {} }
+        Test, Test2, CookieService
       ],
     });
 
@@ -63,6 +62,24 @@ fdescribe('FetchMoiveService', () => {
 
     expect(responseData).toEqual(mockMovieData);
   }));
-
+  it('should handle HTTP error', fakeAsync(() => {
+    const moiveID = '123';
+  
+    service.fetchPosts(moiveID).subscribe({
+      next: () => fail('expected an error, not movies'),
+      error: (error) => {
+        console.log(error)
+        expect(error.status).toBe(404); 
+        expect(error.message).toContain('404');
+        expect(error.error.type).toEqual('Not Found 404'); 
+ 
+      },
+    });
+      const req = httpTestingController.expectOne(`${environment.moiveURLWithoutType}/${moiveID}${environment.api_key}`);
+    req.error(new ErrorEvent('Not Found 404'), { status: 404 });
+  
+    tick(); 
+  }));
+  
 
 });
