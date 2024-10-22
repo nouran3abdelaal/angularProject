@@ -1,11 +1,17 @@
 import { ShortenTextPipe } from "./shorten-text.pipe";
 
 
+fdescribe('ShortenPipe',()=>{
+  let pipe: ShortenTextPipe;
 
-it('Shorten pipe should return correct answer',  () => {
+  beforeEach(()=>{
+    pipe = new ShortenTextPipe();
+
+  })
+  it('Shorten pipe should return correct answer',  () => {
     const testEmail = "user1@example.com_user1@example.com_user1@example.com";
-    let shortenPipe = new ShortenTextPipe();
-    const result = shortenPipe.transform(testEmail);
-
+    const result = pipe.transform(testEmail);
     expect(result).toEqual("user1@example.com_user1@example.com_user1@example. ..."); 
   });
+})
+

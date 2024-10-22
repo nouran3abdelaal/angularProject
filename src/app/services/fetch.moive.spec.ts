@@ -25,8 +25,8 @@ fdescribe('FetchMoiveService', () => {
     service = TestBed.inject(FetchMoiveService);
     httpTestingController = TestBed.inject(HttpTestingController);
     backendSource = TestBed.inject(BackendSource)
-    test2 = TestBed.inject(Test2)
-    test = TestBed.inject(Test)
+    // test2 = TestBed.inject(Test2)
+    // test = TestBed.inject(Test)
   });
 
   afterEach(() => {

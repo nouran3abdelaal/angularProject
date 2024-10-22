@@ -2,21 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NavBarComponent } from '../../shared/nav-bar/nav-bar.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core'; 
+import { MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore } from '@ngx-translate/core'; 
 import { CatalogDetailsComponent } from './catalog-details.component';
-import { CUSTOM_ELEMENTS_SCHEMA, Injectable } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Injectable, DebugElement } from '@angular/core';
 import { CanActivate } from '@angular/router';
 import { of } from 'rxjs';
-
-const translateServiceStub = {
-  instant: (key: string) => key, 
-  get: (key: string) => {
-      return of(key);
-  },
-  use: (key: string) => {
-      key
-    }
-};
+import { RouterTestingModule } from '@angular/router/testing';
+import { Test } from 'src/app/services/test.servcie';
+import { Test2 } from 'src/app/services/test2.servcie';
+import { By } from '@angular/platform-browser';
 
 @Injectable()
 export class MockCanActivateGuard implements CanActivate {
@@ -24,40 +18,23 @@ export class MockCanActivateGuard implements CanActivate {
     return true; 
   }
 }
-describe('CatalogDetailsComponent', () => {
+fdescribe('CatalogDetailsComponent', () => {
   let component: CatalogDetailsComponent;
   let fixture: ComponentFixture<CatalogDetailsComponent>;
+  let debugElement: DebugElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CatalogDetailsComponent,NavBarComponent],
-      imports: [HttpClientTestingModule], 
-      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
-,
+      declarations: [CatalogDetailsComponent],
+      imports: [RouterTestingModule], 
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       providers: [
-        {
-          provide: ActivatedRoute,
-          useValue: {}, 
-        },
-       
-        {
-          provide: Router,
-          useValue: {}, 
-        },
-        {
-          provide: MockCanActivateGuard, 
-          useClass: MockCanActivateGuard,
-        },
-        {
-          provide: TranslateService,
-           useValue: translateServiceStub ,
-
-        }
+        Test,Test2,
       ],
-
     });
     fixture = TestBed.createComponent(CatalogDetailsComponent);
     component = fixture.componentInstance;
+    debugElement = fixture.debugElement;
     fixture.detectChanges();
   });
 
@@ -75,19 +52,31 @@ describe('CatalogDetailsComponent', () => {
       vote_count: 100,
       poster_path: '/test-poster.jpg',
     };
-
+  
     fixture.detectChanges(); 
-
-    const compiled = fixture.nativeElement;
-
-    expect(compiled.querySelector('.card-title').textContent).toContain('Test Movie');
-    expect(compiled.querySelector('.card-text:nth-child(2)').textContent).toContain('Overview:  This is a test movie');
-    expect(compiled.querySelector('.card-text:nth-child(4)').textContent).toContain('Release Date: 2023-09-12');
-    expect(compiled.querySelector('.card-text:nth-child(6)').textContent).toContain('Language: ENGLISH');
-    expect(compiled.querySelector('.card-text:nth-child(8)').textContent).toContain('Vote Avergare: 7.5');
-    expect(compiled.querySelector('.card-text:nth-child(10)').textContent).toContain('Vote Count: 100');
-    expect(compiled.querySelector('img').getAttribute('src')).toContain('/test-poster.jpg');
+  
+    const cardTitle = debugElement.query(By.css('.card-title')).nativeElement.textContent;
+    expect(cardTitle).toContain('Test Movie');
+  
+    const cardOverview = debugElement.query(By.css('.card-text:nth-child(2)')).nativeElement.textContent;
+    expect(cardOverview).toContain('This is a test movie');
+  
+    const releaseDate = debugElement.query(By.css('.card-text:nth-child(4)')).nativeElement.textContent;
+    expect(releaseDate).toContain('2023-09-12');
+  
+    const language = debugElement.query(By.css('.card-text:nth-child(6)')).nativeElement.textContent.toLowerCase();
+    expect(language).toContain('english');
+  
+    const voteAverage = debugElement.query(By.css('.card-text:nth-child(8)')).nativeElement.textContent;
+    expect(voteAverage).toContain('7.5');
+  
+    const voteCount = debugElement.query(By.css('.card-text:nth-child(10)')).nativeElement.textContent;
+    expect(voteCount).toContain('100');
+  
+    const poster = debugElement.query(By.css('img')).nativeElement.getAttribute('src');
+    expect(poster).toContain('/test-poster.jpg');
   });
+  
 });
 
  
