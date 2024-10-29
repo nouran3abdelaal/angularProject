@@ -13,7 +13,7 @@ import { BackendSource } from 'src/app/services/backendSource.servcie';
   styleUrls: ['./login.component.css']
 
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   @ViewChild("form") siginForm: NgForm;
 
   userData = {
@@ -33,9 +33,6 @@ export class LoginComponent implements OnInit {
 
 
   }
-  ngOnInit(): void {
-  }
-
   changeCurrentLang(lang: string) {
     this.translate.use(lang);
     localStorage.setItem("currentLang", lang);

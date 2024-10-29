@@ -11,6 +11,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { Test } from 'src/app/services/test.servcie';
 import { Test2 } from 'src/app/services/test2.servcie';
 import { By } from '@angular/platform-browser';
+import { log } from 'console';
 
 @Injectable()
 export class MockCanActivateGuard implements CanActivate {
@@ -75,6 +76,13 @@ fdescribe('CatalogDetailsComponent', () => {
   
     const poster = debugElement.query(By.css('img')).nativeElement.getAttribute('src');
     expect(poster).toContain('/test-poster.jpg');
+    console.log(cardOverview);
+    console.log(releaseDate);
+    console.log(language);
+    console.log(voteAverage);
+    console.log(voteCount);
+
+    
   });
   
 });
