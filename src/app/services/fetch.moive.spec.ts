@@ -50,7 +50,7 @@ fdescribe('FetchMoiveService', () => {
     } else {
       url = environment.backendURLID + moiveID;
     }
-    
+
     const req = httpTestingController.expectOne(
       url
     );
@@ -65,22 +65,21 @@ fdescribe('FetchMoiveService', () => {
 
   it('should handle HTTP error', fakeAsync(() => {
     const moiveID = '123';
-  
+
     service.fetchPosts(moiveID).subscribe({
       next: () => fail('expected an error, not movies'),
       error: (error) => {
-        //console.log(error)
-        expect(error.status).toBe(404); 
+        expect(error.status).toBe(404);
         expect(error.message).toContain('404');
-        expect(error.error.type).toEqual('Not Found 404'); 
- 
+        expect(error.error.type).toEqual('Not Found 404');
+
       },
     });
-      const req = httpTestingController.expectOne(`${environment.moiveURLWithoutType}/${moiveID}${environment.api_key}`);
+    const req = httpTestingController.expectOne(`${environment.moiveURLWithoutType}/${moiveID}${environment.api_key}`);
     req.error(new ErrorEvent('Not Found 404'), { status: 404 });
-  
-    tick(); 
+
+    tick();
   }));
-  
+
 
 });

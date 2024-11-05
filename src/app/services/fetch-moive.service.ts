@@ -30,7 +30,6 @@ export class FetchMoiveService implements OnInit {
 
     const jwtToken = this.cookieService.get('jwtToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwtToken}`);
-    //console.log(environment.backendURLID + moiveID);
     url = environment.backendURLID + moiveID;
     return this.http.get(url, { headers });
   }

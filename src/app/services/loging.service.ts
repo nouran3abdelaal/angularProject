@@ -39,10 +39,7 @@ export class LogingService {
 
 
   login(userToSearch: { email: string, password: string }) {
-    //console.log("here");
-    
     return this.http.post<AuthenticationResponse>(`http://localhost:8080/api/auth/authenticate`, userToSearch);
-
   }
   signUp(userToAdd: { email: string, password: string, name: string }) {
     const requestBody = {
@@ -73,11 +70,8 @@ export class LogingService {
   }
 
   loginlocal(userToSearch: { email: string, password: string }) {
-    console.log("here");
-
     for (let i = 0; i < this.myUsers.length; i++) {
       if (this.myUsers[i].email === userToSearch.email && this.myUsers[i].password === userToSearch.password) {
-
         return this.myUsers[i].name;
 
       }

@@ -11,30 +11,27 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./catalog-details.component.css']
 })
 export class CatalogDetailsComponent implements OnInit {
-  moive : catalogDetails = null;
-  moiveTemp : any;
-  moiveID='';
+  moive: catalogDetails = null;
+  moiveTemp: any;
+  moiveID = '';
 
-  constructor(private fectchMoive: FetchMoiveService,private route: ActivatedRoute) {
+  constructor(private fectchMoive: FetchMoiveService, private route: ActivatedRoute) {
 
   }
   ngOnInit(): void {
     this.getingMoiveDetails();
   }
- 
-  getingMoiveDetails(){
+
+  getingMoiveDetails() {
     this.route.params?.subscribe(params => {
-    
+
       this.moiveID = params['id'];
     }
     )
     this.moiveTemp = this.fectchMoive.fetchPosts(this.moiveID)?.subscribe(moive => {
       this.moiveTemp = moive;
-      //console.log(this.moiveTemp);
-      
-     
     })
   }
 
-  }
+}
 

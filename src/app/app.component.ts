@@ -17,9 +17,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void { }
   processing(be: boolean) {
-    this.backendSource.backendSource = !be ? 'local' : 'Spring';
-    //console.log(this.backendSource.backendSource);
-    
+    this.backendSource.backendSource = !be ? 'local' : 'Spring';    
   }
 
 }

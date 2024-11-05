@@ -32,10 +32,7 @@ export class CatalogComponent implements OnInit {
     this.fetching = true;
     this.userData = JSON.parse(localStorage.getItem("userData"));
     this.fetchMoives.fetchPosts()?.subscribe(moive => {
-      this.moives = moive;
-      //console.log(this.moives);
-      
-
+      this.moives = moive;      
       this.fetching = false;
     })
   }
@@ -43,5 +40,5 @@ export class CatalogComponent implements OnInit {
   seeMoreMethod(moive: any) {
     this.router.navigate(['/catalogDetails', moive.id]);
   }
-  
+
 }
