@@ -50,7 +50,7 @@ fdescribe('CatalogDetailsComponent', () => {
   
     fixture.detectChanges(); 
   
-    const cardTitle = debugElement.query(By.css('.card-title')).nativeElement.textContent;
+    const cardTitle = debugElement.query(By.css('.card-body .card-title')).nativeElement.textContent;
     expect(cardTitle).toContain('Test Movie');
   
     const cardOverview = debugElement.query(By.css('.card-text:nth-child(2)')).nativeElement.textContent;
@@ -70,11 +70,12 @@ fdescribe('CatalogDetailsComponent', () => {
   
     const poster = debugElement.query(By.css('img')).nativeElement.getAttribute('src');
     expect(poster).toContain('/test-poster.jpg');
-    //console.log(cardOverview);
-    //console.log(releaseDate);
-    //console.log(language);
-    //console.log(voteAverage);
-    //console.log(voteCount);
+    // const divElement = fixture.debugElement.query(By.css('div'));
+
+    //<button class="my-class another-class">Click Me</button>
+    // const specificButton = fixture.debugElement.query(By.css('button.my-class.another-class'));
+    // const enabledButton = fixture.debugElement.query(By.css('button[disabled="false"]'));
+
 
     
   });

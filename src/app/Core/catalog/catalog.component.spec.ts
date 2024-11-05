@@ -81,7 +81,8 @@ fdescribe('CatalogComponent', () => {
     const debugElement: DebugElement = fixture.debugElement;
     const moreDetailsButton = debugElement.query(By.css('.btn.btn-primary')); 
 
-    moreDetailsButton.triggerEventHandler('click', null); 
+    // moreDetailsButton.triggerEventHandler('click', null); 
+    moreDetailsButton.nativeElement.click()
     expect(router.navigate).toHaveBeenCalledWith(['/catalogDetails', mockMoives.results[0].id]);
 });
   
