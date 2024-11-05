@@ -1,4 +1,4 @@
-import { BackendSource } from './services/backendSource.servcie';
+import { BackendSourceService } from './services/backendSource.servcie';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
@@ -18,7 +18,7 @@ fdescribe('AppComponent', () => {
   let app: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let debugElement: DebugElement;
-  let backendSource: BackendSource
+  let backendSource: BackendSourceService
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -41,7 +41,7 @@ fdescribe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
     debugElement = fixture.debugElement;
-    backendSource = TestBed.inject(BackendSource)
+    backendSource = TestBed.inject(BackendSourceService)
     fixture.detectChanges();
 
   });

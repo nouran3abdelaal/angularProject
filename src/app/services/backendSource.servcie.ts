@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root'
 })
-export class BackendSource {
+export class BackendSourceService {
     public backendSource: string = 'local';
     constructor(){}
 }

@@ -7,7 +7,7 @@ import { of } from "rxjs";
 import { FormsModule } from "@angular/forms";
 import { LogingService } from '../../services/loging.service';
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { BackendSource } from "src/app/services/backendSource.servcie";
+import { BackendSourceService } from "src/app/services/backendSource.servcie";
 
 const translateServiceMock = {
     use: (key: string) => of(key),
@@ -23,7 +23,7 @@ describe('LoginComponent', () => {
     let component: LoginComponent;
     let fixture: ComponentFixture<LoginComponent>;
     let debugElement: DebugElement;
-    let backendSource: BackendSource;
+    let backendSource: BackendSourceService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -38,14 +38,14 @@ describe('LoginComponent', () => {
             providers: [
                 { provide: TranslateService, useValue: translateServiceMock },
                 { provide: LogingService, useValue: logingServiceMock },
-                BackendSource  // Ensure BackendSource is provided if used directly
+                BackendSourceService  // Ensure BackendSourceService is provided if used directly
             ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(LoginComponent);
         component = fixture.componentInstance;
         debugElement = fixture.debugElement;
-        backendSource = TestBed.inject(BackendSource);
+        backendSource = TestBed.inject(BackendSourceService);
         backendSource.backendSource = "local";  // Set backend source to local
 
         fixture.detectChanges();

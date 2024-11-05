@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { BackendSource } from './backendSource.servcie';
+import { BackendSourceService } from './backendSource.servcie';
 import { Test } from './test.servcie';
 
 
@@ -15,7 +15,7 @@ export class FetchMoiveService implements OnInit {
   moiveID = '';
   constructor(private http: HttpClient,
     //  private route: ActivatedRoute, 
-     private cookieService: CookieService, private backendSource: BackendSource, private test: Test) { }
+     private cookieService: CookieService, private backendSource: BackendSourceService, private test: Test) { }
 
   ngOnInit(): void {}
 

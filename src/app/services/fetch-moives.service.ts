@@ -2,14 +2,14 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment'
-import { BackendSource } from './backendSource.servcie';
+import { BackendSourceService } from './backendSource.servcie';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FetchMoivesService {
 
-  constructor(private http: HttpClient, private cookieService: CookieService, private backendSource: BackendSource) {
+  constructor(private http: HttpClient, private cookieService: CookieService, private backendSource: BackendSourceService) {
 
   }
 

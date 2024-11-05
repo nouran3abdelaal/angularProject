@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CatalogComponent } from './catalog.component';
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { FetchMoivesService } from 'src/app/services/fetch-moives.service';
-import { BackendSource } from 'src/app/services/backendSource.servcie';
+import { BackendSourceService } from 'src/app/services/backendSource.servcie';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { Test } from 'src/app/services/test.servcie';
@@ -16,7 +16,7 @@ fdescribe('CatalogComponent', () => {
   let component: CatalogComponent;
   let fixture: ComponentFixture<CatalogComponent>;
   let service: jasmine.SpyObj<FetchMoivesService>;
-  let backendSource: BackendSource
+  let backendSource: BackendSourceService
   let debugElement: DebugElement;
   let router:  jasmine.SpyObj<Router>;
   // let router:  Router;
@@ -44,7 +44,7 @@ fdescribe('CatalogComponent', () => {
     }).compileComponents()
       fixture = TestBed.createComponent(CatalogComponent);
       component = fixture.componentInstance;
-      backendSource = TestBed.inject(BackendSource)
+      backendSource = TestBed.inject(BackendSourceService)
       debugElement = fixture.debugElement;
       // router = TestBed.inject(Router);
       // spyOn(router, 'navigate'); 

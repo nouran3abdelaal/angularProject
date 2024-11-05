@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LogingService } from './services/loging.service';
 import { TranslateService } from '@ngx-translate/core';
-import { BackendSource } from './services/backendSource.servcie';
+import { BackendSourceService } from './services/backendSource.servcie';
+import { ShortenTextPipe } from './shared/pipes/shorten-text.pipe';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { BackendSource } from './services/backendSource.servcie';
 })
 export class AppComponent implements OnInit {
   title = "my-first-app";
-  constructor(private backendSource: BackendSource) {
+  constructor(private backendSource: BackendSourceService, private shortenTextPipe: ShortenTextPipe) {
   }
 
 

@@ -2,7 +2,7 @@ import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { FetchMoiveService } from './fetch-moive.service';
 import { environment } from 'src/environments/environment';
-import { BackendSource } from './backendSource.servcie';
+import { BackendSourceService } from './backendSource.servcie';
 import { Test } from './test.servcie';
 import { Test2 } from './test2.servcie';
 import { CookieService } from 'ngx-cookie-service';
@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 fdescribe('FetchMoiveService', () => {
   let service: FetchMoiveService;
   let httpTestingController: HttpTestingController;
-  let backendSource: BackendSource;
+  let backendSource: BackendSourceService;
   let test: Test;
   let test2: Test2;
 
@@ -24,7 +24,7 @@ fdescribe('FetchMoiveService', () => {
 
     service = TestBed.inject(FetchMoiveService);
     httpTestingController = TestBed.inject(HttpTestingController);
-    backendSource = TestBed.inject(BackendSource)
+    backendSource = TestBed.inject(BackendSourceService)
     // test2 = TestBed.inject(Test2)
     // test = TestBed.inject(Test)
   });

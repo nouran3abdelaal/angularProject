@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgControl, NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { LogingService } from '../../services/loging.service';
-import { BackendSource } from 'src/app/services/backendSource.servcie';
+import { BackendSourceService } from 'src/app/services/backendSource.servcie';
 
 @Component({
   selector: 'app-sign-up',
@@ -27,7 +27,7 @@ export class SignUpComponent implements OnInit {
 
   currentLang: string;
 
-  constructor(private router: Router, private LogingService: LogingService, public translate: TranslateService, private backendSource: BackendSource) {
+  constructor(private router: Router, private LogingService: LogingService, public translate: TranslateService, private backendSource: BackendSourceService) {
     this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang);
 

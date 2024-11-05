@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CookieService } from 'ngx-cookie-service';
-import { BackendSource } from 'src/app/services/backendSource.servcie';
+import { BackendSourceService } from 'src/app/services/backendSource.servcie';
 
 
 @Component({
@@ -27,7 +27,7 @@ export class LoginComponent {
   currentLang: string;
 
   constructor(private router: Router, private LogingService: LogingService,
-    public translate: TranslateService, private cookieService: CookieService, private backendSource: BackendSource) {
+    public translate: TranslateService, private cookieService: CookieService, private backendSource: BackendSourceService) {
     this.currentLang = localStorage.getItem('currentLang') || 'en';
     this.translate.use(this.currentLang);
 

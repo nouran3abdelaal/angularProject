@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthenticationResponse } from '../Models/AuthenticationResponse';
 import { user } from '../Models/user';
-import { BackendSource } from './backendSource.servcie';
+import { BackendSourceService } from './backendSource.servcie';
 import { Observable } from 'rxjs';
 
 
@@ -35,7 +35,7 @@ export class LogingService {
     ];
 
 
-  constructor(private http: HttpClient, private cookieService: CookieService, private backendSource: BackendSource) { }
+  constructor(private http: HttpClient, private cookieService: CookieService, private backendSource: BackendSourceService) { }
 
 
   login(userToSearch: { email: string, password: string }) {
