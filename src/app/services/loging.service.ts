@@ -39,6 +39,8 @@ export class LogingService {
 
 
   login(userToSearch: { email: string, password: string }) {
+    //console.log("here");
+    
     return this.http.post<AuthenticationResponse>(`http://localhost:8080/api/auth/authenticate`, userToSearch);
 
   }
@@ -55,7 +57,7 @@ export class LogingService {
     this.http.post<AuthenticationResponse>('http://localhost:8080/api/auth/register', requestBody)
       .subscribe(
         (response) => {
-          console.log('User registered:', response);
+          //console.log('User registered:', response);
           const jwtToken = response.token;
           this.cookieService.set('jwtToken', jwtToken);
         },
@@ -71,6 +73,8 @@ export class LogingService {
   }
 
   loginlocal(userToSearch: { email: string, password: string }) {
+    console.log("here");
+
     for (let i = 0; i < this.myUsers.length; i++) {
       if (this.myUsers[i].email === userToSearch.email && this.myUsers[i].password === userToSearch.password) {
 

@@ -1,38 +1,32 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { NavBarComponent } from '../../shared/nav-bar/nav-bar.component';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MissingTranslationHandler, TranslateCompiler, TranslateLoader, TranslateModule, TranslateParser, TranslateService, TranslateStore } from '@ngx-translate/core'; 
 import { CatalogDetailsComponent } from './catalog-details.component';
 import { CUSTOM_ELEMENTS_SCHEMA, Injectable, DebugElement } from '@angular/core';
 import { CanActivate } from '@angular/router';
-import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Test } from 'src/app/services/test.servcie';
 import { Test2 } from 'src/app/services/test2.servcie';
 import { By } from '@angular/platform-browser';
-import { log } from 'console';
 
-@Injectable()
-export class MockCanActivateGuard implements CanActivate {
-  canActivate(): boolean {
-    return true; 
-  }
-}
+// @Injectable()
+// export class MockCanActivateGuard implements CanActivate {
+//   canActivate(): boolean {
+//     return true; 
+//   }
+// }
 fdescribe('CatalogDetailsComponent', () => {
   let component: CatalogDetailsComponent;
   let fixture: ComponentFixture<CatalogDetailsComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach( async() => {
+    await TestBed.configureTestingModule({
       declarations: [CatalogDetailsComponent],
       imports: [RouterTestingModule], 
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       providers: [
         Test,Test2,
       ],
-    });
+    }).compileComponents();
     fixture = TestBed.createComponent(CatalogDetailsComponent);
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
@@ -76,11 +70,11 @@ fdescribe('CatalogDetailsComponent', () => {
   
     const poster = debugElement.query(By.css('img')).nativeElement.getAttribute('src');
     expect(poster).toContain('/test-poster.jpg');
-    console.log(cardOverview);
-    console.log(releaseDate);
-    console.log(language);
-    console.log(voteAverage);
-    console.log(voteCount);
+    //console.log(cardOverview);
+    //console.log(releaseDate);
+    //console.log(language);
+    //console.log(voteAverage);
+    //console.log(voteCount);
 
     
   });

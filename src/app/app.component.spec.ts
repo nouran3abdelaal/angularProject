@@ -7,6 +7,8 @@ import { By } from '@angular/platform-browser';
 import { AlertComponent } from './shared/alert/alert.component';
 // import { TranslateService } from '@ngx-translate/core';  // Correct import here
 import { of } from 'rxjs';
+import { ShortenTextPipe } from './shared/pipes/shorten-text.pipe';
+import { TranslateService } from '@ngx-translate/core';
 
 const translateServiceStub = {
   get: (key: string) => of(key) 
@@ -19,7 +21,6 @@ fdescribe('AppComponent', () => {
   let backendSource: BackendSource
 
   beforeEach(async () => {
-    console.log("async berfor")
     await TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -29,22 +30,19 @@ fdescribe('AppComponent', () => {
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       providers: [
+        ShortenTextPipe,
+        // TranslateService
         // {          provide: TranslateService, useValue: translateServiceStub,
         // }
       ]
     }).compileComponents();
-    console.log("async after")
-
   });
   beforeEach(() => {
-    console.log("sync berfor")
-
     fixture = TestBed.createComponent(AppComponent);
     app = fixture.componentInstance;
     debugElement = fixture.debugElement;
     backendSource = TestBed.inject(BackendSource)
     fixture.detectChanges();
-    console.log("sync after")
 
   });
 
@@ -67,5 +65,15 @@ fdescribe('AppComponent', () => {
     const button = debugElement.query(By.css('button.btn:nth-of-type(2)'));
     button.nativeElement.click();
     expect(backendSource.backendSource).toEqual('local');
+  });
+
+  it(`should show the difference between toBE and toEqual'`, () => {
+    const obj1 = []
+    expect(10).toBe(10);           // Passes: both are exactly the same number
+    expect(obj1).toBe(obj1);       // Passes: obj1 is the same reference as obj1
+   // expect([1, 2, 3]).toBe([1, 2, 3]);  // Fails: different array instances, even though contents are identical
+    expect({ name: 'Alice' }).toEqual({ name: 'Alice' });   // Passes: objects have the same structure and content
+    expect([1, 2, 3]).toEqual([1, 2, 3]);                   // Passes: arrays have the same values in the same order
+    
   });
 });

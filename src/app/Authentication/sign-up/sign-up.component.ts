@@ -57,11 +57,11 @@ export class SignUpComponent implements OnInit {
     } else {
       if (this.LogingService.checkEmail(this.userData.email).subscribe(
         (response) => {
-          console.log(response);
+          //console.log(response);
           this.uniqueEmail = false;
           this.emailInput.reset();
           this.error = true;
-          console.log("exits email");
+          //console.log("exits email");
           return;
         },
         (error) => {

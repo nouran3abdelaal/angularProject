@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SharedRoutingModule } from './shared-routing.module';
 import { Test } from '../services/test.servcie';
 import { Test2 } from '../services/test2.servcie';
+import { TestComponent } from './test/test.component';
 
 
 
@@ -17,7 +18,8 @@ import { Test2 } from '../services/test2.servcie';
     AlertComponent,
     LoadingSpinnerComponent,
     NavBarComponent,
-    ShortenTextPipe
+    ShortenTextPipe,
+    TestComponent
   ],
   imports: [
     CommonModule,

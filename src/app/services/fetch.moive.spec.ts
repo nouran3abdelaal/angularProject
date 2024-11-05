@@ -68,7 +68,7 @@ fdescribe('FetchMoiveService', () => {
     service.fetchPosts(moiveID).subscribe({
       next: () => fail('expected an error, not movies'),
       error: (error) => {
-        console.log(error)
+        //console.log(error)
         expect(error.status).toBe(404); 
         expect(error.message).toContain('404');
         expect(error.error.type).toEqual('Not Found 404'); 

@@ -8,6 +8,7 @@ import { of } from 'rxjs';
 import { Test } from 'src/app/services/test.servcie';
 import { By } from '@angular/platform-browser';
 import { ShortenTextPipe } from 'src/app/shared/pipes/shorten-text.pipe';
+import { Router } from '@angular/router';
 
 
 
@@ -17,9 +18,18 @@ fdescribe('CatalogComponent', () => {
   let service: jasmine.SpyObj<FetchMoivesService>;
   let backendSource: BackendSource
   let debugElement: DebugElement;
+  let router:  jasmine.SpyObj<Router>;
+  // let router:  Router;
 
+  const mockMoives = {
+    results: [
+      { original_title: 'Movie 1', poster_path: '/path1.jpg', overview: 'Overview 1',id:1 },
+      { original_title: 'Movie 2', poster_path: '/path2.jpg', overview: 'Overview 2', id:2 }
+    ]
+  };
   beforeEach(async () => {
     service = jasmine.createSpyObj('FetchMoivesService', ['fetchPosts']);
+     router = jasmine.createSpyObj('Router', ['navigate']);
 
     await TestBed.configureTestingModule({
       declarations: [CatalogComponent,ShortenTextPipe],
@@ -27,13 +37,17 @@ fdescribe('CatalogComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
         Test,
-        {provide:FetchMoivesService, useValue:service}
+        {provide:FetchMoivesService, useValue:service},
+        {provide:Router, useValue:router}
+
       ],
     }).compileComponents()
       fixture = TestBed.createComponent(CatalogComponent);
       component = fixture.componentInstance;
       backendSource = TestBed.inject(BackendSource)
       debugElement = fixture.debugElement;
+      // router = TestBed.inject(Router);
+      // spyOn(router, 'navigate'); 
       fixture.detectChanges();
   });
 
@@ -51,12 +65,6 @@ fdescribe('CatalogComponent', () => {
     expect(component.moives).toEqual([]);
   });
   it('should render the correct number of movies', () => {
-    const mockMoives = {
-      results: [
-        { original_title: 'Movie 1', poster_path: '/path1.jpg', overview: 'Overview 1' },
-        { original_title: 'Movie 2', poster_path: '/path2.jpg', overview: 'Overview 2' }
-      ]
-    };
     service.fetchPosts.and.returnValue(of(mockMoives));
 
     component.getAllMoives(); 
@@ -65,5 +73,16 @@ fdescribe('CatalogComponent', () => {
     const movieCards = debugElement.queryAll(By.css('.card'));
     expect(movieCards.length).toBe(mockMoives.results.length);
   });
+  it('should navigate to the details page with the correct ID when "More Details" is clicked', () => {
+    service.fetchPosts.and.returnValue(of(mockMoives));
+    component.getAllMoives(); 
+    fixture.detectChanges();
+
+    const debugElement: DebugElement = fixture.debugElement;
+    const moreDetailsButton = debugElement.query(By.css('.btn.btn-primary')); 
+
+    moreDetailsButton.triggerEventHandler('click', null); 
+    expect(router.navigate).toHaveBeenCalledWith(['/catalogDetails', mockMoives.results[0].id]);
+});
   
 });
