@@ -9,8 +9,8 @@ fdescribe('ShortenPipe',()=>{
 
   })
   it('Shorten pipe should return correct answer',  () => {
-    const testEmail = "user1@example.com_user1@example.com_user1@example.com";
-    const result = pipe.transform(testEmail);
+    const text = "user1@example.com_user1@example.com_user1@example.com";
+    const result = pipe.transform(text);
     expect(result).toEqual("user1@example.com_user1@example.com_user1@example. ..."); 
   });
 })

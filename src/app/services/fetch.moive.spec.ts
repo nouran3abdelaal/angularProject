@@ -11,8 +11,6 @@ fdescribe('FetchMoiveService', () => {
   let service: FetchMoiveService;
   let httpTestingController: HttpTestingController;
   let backendSource: BackendSourceService;
-  let test: Test;
-  let test2: Test2;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -25,8 +23,6 @@ fdescribe('FetchMoiveService', () => {
     service = TestBed.inject(FetchMoiveService);
     httpTestingController = TestBed.inject(HttpTestingController);
     backendSource = TestBed.inject(BackendSourceService)
-    // test2 = TestBed.inject(Test2)
-    // test = TestBed.inject(Test)
   });
 
   afterEach(() => {
@@ -45,12 +41,16 @@ fdescribe('FetchMoiveService', () => {
     service.fetchPosts(moiveID)?.subscribe((data) => {
       responseData = data;
     });
+    // service.fetchPosts(moiveID+1)?.subscribe((data) => {
+    //   responseData = data;
+    // });
     let url = ''
     if (backendSource.backendSource === 'local') {
       url = `${environment.moiveURLWithoutType}/${moiveID}${environment.api_key}`
     } else {
       url = environment.backendURLID + moiveID;
     }
+    
     const req = httpTestingController.expectOne(
       url
     );
@@ -62,6 +62,7 @@ fdescribe('FetchMoiveService', () => {
 
     expect(responseData).toEqual(mockMovieData);
   }));
+
   it('should handle HTTP error', fakeAsync(() => {
     const moiveID = '123';
   
