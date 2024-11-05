@@ -22,9 +22,7 @@ fdescribe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
+      imports: [],
       declarations: [AppComponent
         // ,AlertComponent
       ],
