@@ -30,7 +30,7 @@ fdescribe('AppComponent', () => {
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       providers: [
-        ShortenTextPipe,
+        // ShortenTextPipe,
         // TranslateService
         // {          provide: TranslateService, useValue: translateServiceStub,
         // }
