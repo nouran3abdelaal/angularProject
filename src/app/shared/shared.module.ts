@@ -10,6 +10,8 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { Test } from '../services/test.servcie';
 import { Test2 } from '../services/test2.servcie';
 import { TestComponent } from './test/test.component';
+import { ChildComponent } from './child/child.component';
+import { ParentComponent } from './parent/parent.component';
 
 
 
@@ -19,7 +21,9 @@ import { TestComponent } from './test/test.component';
     LoadingSpinnerComponent,
     NavBarComponent,
     ShortenTextPipe,
-    TestComponent
+    TestComponent,
+    ChildComponent,
+    ParentComponent
   ],
   imports: [
     CommonModule,
